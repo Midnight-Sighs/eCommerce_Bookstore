@@ -16,7 +16,7 @@ namespace eCommerceStarterCode.Models
         public Product Product { get; set; }
 
         //FK to Users Table
-        [ForeignKey("BookID")] 
+        [ForeignKey("UserId")] 
         public string UserId { get; set; }
         public User User { get; set; }
 
