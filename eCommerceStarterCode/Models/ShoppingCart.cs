@@ -5,31 +5,25 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Models
 {
-    public partial class Book
+    public class ShoppingCart
     {
-        public Book()
-        {
-            Users = new HashSet<User>();
-        }
+        [Key]
+        public int CartId { get; set; }
+        
+        public int Quanity { get; set; }
 
-        public int BookId { get; set; }
+        //Foreign Key to User Table
+        [ForeignKey("UserID")]
 
-        public string UserId { get; set; }
+        public string UserID { get; set; }
 
-        public string Title { get; set; }
+        public User User { get; set; }
 
-        public string Author { get; set; }
+        //Foreign Key to Book Table
+        [ForeignKey("BookId")]
 
-        public string Description { get; set; }
+        public int BookID { get; set; }
 
-        public string Genre { get; set; }
-
-        public string ReleaseYear { get; set; }
-
-        public string ISBN { get; set; }
-
-        public decimal Price { get; set; }
-
-        public virtual ICollection<User> Users { get; set; }
+        public Book Book { get; set; }
     }
 }
