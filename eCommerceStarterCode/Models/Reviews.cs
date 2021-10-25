@@ -10,10 +10,10 @@ namespace eCommerceStarterCode.Models
         [Key]
         public int ReviewID { get; set; }
 
-        //FK to Products table
+        //FK to Books table
         [ForeignKey("BookID")]
         public int BookId { get; set; }
-        public Product Product { get; set; }
+        public Book Book { get; set; }
 
         //FK to Users Table
         [ForeignKey("UserId")] 
