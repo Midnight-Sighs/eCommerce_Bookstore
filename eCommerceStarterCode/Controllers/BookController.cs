@@ -58,7 +58,7 @@ namespace eCommerceStarterCode.Controllers
             var book = _context.Book.Where(u => u.BookId == Id).SingleOrDefault();
             if (book == null)
             {
-                return NotFound("There is no user with that Id.");
+                return NotFound("There is no book with that Id.");
             }
             book.Title = value.Title;
             book.Author = value.Author;
