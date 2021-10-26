@@ -48,15 +48,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7e9fffd1-cf5f-47f4-aea0-32076d7d5918",
-                            ConcurrencyStamp = "6ec4282b-c55f-43fc-aef9-d74b769a3751",
+                            Id = "74156688-da56-4e03-b8ef-67814940d7ab",
+                            ConcurrencyStamp = "dc6eb0c5-6a2a-4385-9ccb-514596cfcb5f",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "5799f067-da25-42c8-9a4a-50e12dca041c",
-                            ConcurrencyStamp = "895078ee-89e3-4946-87a5-58fca89dcecb",
+                            Id = "7d182381-88a7-4f15-8944-4297da8e75cf",
+                            ConcurrencyStamp = "7285e612-23f3-459d-82a5-0845e30d6270",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -213,8 +213,7 @@ namespace eCommerceStarterCode.Migrations
                             ISBN = "9781520126241",
                             Price = 9.9900000000000002,
                             ReleaseYear = "2016",
-                            Title = "Expeditionary Force: Columbus Day",
-                            UserId = "a"
+                            Title = "Expeditionary Force: Columbus Day"
                         },
                         new
                         {
@@ -225,8 +224,7 @@ namespace eCommerceStarterCode.Migrations
                             ISBN = "9780756404741",
                             Price = 8.9900000000000002,
                             ReleaseYear = "2007",
-                            Title = "In the Name of the Wind",
-                            UserId = "a"
+                            Title = "In the Name of the Wind"
                         },
                         new
                         {
@@ -237,8 +235,7 @@ namespace eCommerceStarterCode.Migrations
                             ISBN = "9780356501192",
                             Price = 11.99,
                             ReleaseYear = "2011",
-                            Title = "Hounded",
-                            UserId = "c"
+                            Title = "Hounded"
                         },
                         new
                         {
@@ -249,8 +246,7 @@ namespace eCommerceStarterCode.Migrations
                             ISBN = "9780345260642",
                             Price = 7.9900000000000002,
                             ReleaseYear = "1977",
-                            Title = "A Scanner Darkly",
-                            UserId = "b"
+                            Title = "A Scanner Darkly"
                         },
                         new
                         {
@@ -261,8 +257,7 @@ namespace eCommerceStarterCode.Migrations
                             ISBN = "9780441172719",
                             Price = 14.99,
                             ReleaseYear = "1965",
-                            Title = "Dune",
-                            UserId = "b"
+                            Title = "Dune"
                         });
                 });
 
@@ -449,14 +444,14 @@ namespace eCommerceStarterCode.Migrations
                             Id = "a",
                             AccessFailedCount = 0,
                             City = "Some City",
-                            ConcurrencyStamp = "88a07e5e-6d32-4d14-93e0-f43ad111553f",
+                            ConcurrencyStamp = "fd39c277-4509-4c2d-81f9-dc746ed7f570",
                             Email = "ChewieYou@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Chewbaca",
                             LastName = "Solo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6944c61d-8884-45d3-b0c2-a332f1acf61b",
+                            SecurityStamp = "482d9bf6-00dd-40a3-8a11-864e3f07f2b4",
                             State = "No States Here",
                             StreetAddress = "123 Millenium Falcon",
                             TwoFactorEnabled = false,
@@ -468,14 +463,14 @@ namespace eCommerceStarterCode.Migrations
                             Id = "b",
                             AccessFailedCount = 0,
                             City = "Some City",
-                            ConcurrencyStamp = "06a18ba1-e02c-4518-9f82-4a3f4de3f3bd",
+                            ConcurrencyStamp = "460447d2-5d76-4998-bf99-3a2c4a62289f",
                             Email = "IKnow@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Han",
                             LastName = "Solo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bfb38444-49ec-4535-a730-d2e2ec0e4c7e",
+                            SecurityStamp = "49999876-e240-4ab4-913b-42299f7d4893",
                             State = "No States Here",
                             StreetAddress = "123 Millenium Falcon",
                             TwoFactorEnabled = false,
@@ -487,14 +482,14 @@ namespace eCommerceStarterCode.Migrations
                             Id = "c",
                             AccessFailedCount = 0,
                             City = "Roach Motel",
-                            ConcurrencyStamp = "76847092-867d-4cf9-a12f-f64a32374c70",
+                            ConcurrencyStamp = "c5cc76e6-8b87-4c34-b6e8-4bac25530f0e",
                             Email = "SkippySucks@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Joe",
                             LastName = "Bishop",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dfacc0b1-bb5f-47ff-b04c-a4ae89923d78",
+                            SecurityStamp = "56c78cc5-a440-4272-a51e-28e511388eaf",
                             State = "Galaxy Far Away",
                             StreetAddress = "123 Valkyrie",
                             TwoFactorEnabled = false,
@@ -506,14 +501,14 @@ namespace eCommerceStarterCode.Migrations
                             Id = "d",
                             AccessFailedCount = 0,
                             City = "Roach Motel",
-                            ConcurrencyStamp = "6d1ea5e8-9dbf-4531-af84-103172f47fcc",
+                            ConcurrencyStamp = "4c2dea41-251b-4021-8059-6374da106d17",
                             Email = "NoDirtyMonkeys@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Skippy",
                             LastName = "The Magnificent",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4716d742-8bc7-4371-8b11-a57815f6d03c",
+                            SecurityStamp = "35295c1f-017a-4614-b610-67fbccd3b81d",
                             State = "Galaxy Far Away",
                             StreetAddress = "123 Valkyrie",
                             TwoFactorEnabled = false,

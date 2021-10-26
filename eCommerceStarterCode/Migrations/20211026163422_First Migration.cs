@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace eCommerceStarterCode.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -244,8 +244,8 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "7e9fffd1-cf5f-47f4-aea0-32076d7d5918", "6ec4282b-c55f-43fc-aef9-d74b769a3751", "User", "USER" },
-                    { "5799f067-da25-42c8-9a4a-50e12dca041c", "895078ee-89e3-4946-87a5-58fca89dcecb", "Admin", "ADMIN" }
+                    { "74156688-da56-4e03-b8ef-67814940d7ab", "dc6eb0c5-6a2a-4385-9ccb-514596cfcb5f", "User", "USER" },
+                    { "7d182381-88a7-4f15-8944-4297da8e75cf", "7285e612-23f3-459d-82a5-0845e30d6270", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -253,10 +253,10 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "City", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "State", "StreetAddress", "TwoFactorEnabled", "UserName", "ZipCode" },
                 values: new object[,]
                 {
-                    { "a", 0, "Some City", "88a07e5e-6d32-4d14-93e0-f43ad111553f", "ChewieYou@aol.com", false, "Chewbaca", "Solo", false, null, null, null, null, null, false, "6944c61d-8884-45d3-b0c2-a332f1acf61b", "No States Here", "123 Millenium Falcon", false, "Chewie", "12345" },
-                    { "b", 0, "Some City", "06a18ba1-e02c-4518-9f82-4a3f4de3f3bd", "IKnow@aol.com", false, "Han", "Solo", false, null, null, null, null, null, false, "bfb38444-49ec-4535-a730-d2e2ec0e4c7e", "No States Here", "123 Millenium Falcon", false, "Han", "12345" },
-                    { "c", 0, "Roach Motel", "76847092-867d-4cf9-a12f-f64a32374c70", "SkippySucks@aol.com", false, "Joe", "Bishop", false, null, null, null, null, null, false, "dfacc0b1-bb5f-47ff-b04c-a4ae89923d78", "Galaxy Far Away", "123 Valkyrie", false, "BishopRocks", "12345" },
-                    { "d", 0, "Roach Motel", "6d1ea5e8-9dbf-4531-af84-103172f47fcc", "NoDirtyMonkeys@aol.com", false, "Skippy", "The Magnificent", false, null, null, null, null, null, false, "4716d742-8bc7-4371-8b11-a57815f6d03c", "Galaxy Far Away", "123 Valkyrie", false, "Skippy_The_Mag", "12345" }
+                    { "a", 0, "Some City", "fd39c277-4509-4c2d-81f9-dc746ed7f570", "ChewieYou@aol.com", false, "Chewbaca", "Solo", false, null, null, null, null, null, false, "482d9bf6-00dd-40a3-8a11-864e3f07f2b4", "No States Here", "123 Millenium Falcon", false, "Chewie", "12345" },
+                    { "b", 0, "Some City", "460447d2-5d76-4998-bf99-3a2c4a62289f", "IKnow@aol.com", false, "Han", "Solo", false, null, null, null, null, null, false, "49999876-e240-4ab4-913b-42299f7d4893", "No States Here", "123 Millenium Falcon", false, "Han", "12345" },
+                    { "c", 0, "Roach Motel", "c5cc76e6-8b87-4c34-b6e8-4bac25530f0e", "SkippySucks@aol.com", false, "Joe", "Bishop", false, null, null, null, null, null, false, "56c78cc5-a440-4272-a51e-28e511388eaf", "Galaxy Far Away", "123 Valkyrie", false, "BishopRocks", "12345" },
+                    { "d", 0, "Roach Motel", "4c2dea41-251b-4021-8059-6374da106d17", "NoDirtyMonkeys@aol.com", false, "Skippy", "The Magnificent", false, null, null, null, null, null, false, "35295c1f-017a-4614-b610-67fbccd3b81d", "Galaxy Far Away", "123 Valkyrie", false, "Skippy_The_Mag", "12345" }
                 });
 
             migrationBuilder.InsertData(
@@ -264,11 +264,11 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "BookId", "Author", "Description", "Genre", "ISBN", "Price", "ReleaseYear", "Title", "UserId" },
                 values: new object[,]
                 {
-                    { -1, "Craig Alanson", "We were fighting on the wrong side, of a war we couldn't win. And that was the good news. The Ruhar hit us on Columbus Day.There we were, innocently drifting along the cosmos on our little blue marble, like the native Americans in 1492.Over the horizon come ships of a technologically advanced, aggressive culture, and BAM! There go the good old days, when humans only got killed by each other.So,Columbus Day.It fits.", "Military Sci-fi", "9781520126241", 9.9900000000000002, "2016", "Expeditionary Force: Columbus Day", "a" },
-                    { -2, "Patrick Rothfuss", "The Name of the Wind is an epic fantasy by Patrick Rothfuss in which the legendary hero Kvothe, now in hiding as Waystone Inn owner Kote, recounts his past experiences to Chronicler, a story collector. The book forms the first of the three parts of Rothfuss's Kingkiller Chronicle.", "Fantasy", "9780756404741", 8.9900000000000002, "2007", "In the Name of the Wind", "a" },
-                    { -4, "Phillip K Dick", "An addict and an undercover officer battle drug addiction in an alternate historical United States.", "Fiction", "9780345260642", 7.9900000000000002, "1977", "A Scanner Darkly", "b" },
-                    { -5, "Frank Herbert", "Dune is set in the distant future amidst a feudal interstellar society in which various noble houses control planetary fiefs. It tells the story of young Paul Atreides, whose family accepts the stewardship of the planet Arrakis. While the planet is an inhospitable and sparsely populated desert wasteland, it is the only source of melange, or \"spice\", a drug that extends life and enhances mental abilities. Melange is also necessary for space navigation, which requires a kind of multidimensional awareness and foresight that only the drug provides", "Sci-Fi", "9780441172719", 14.99, "1965", "Dune", "b" },
-                    { -3, "Kevin Hearne", "The first novel in the New York Times bestselling Iron Druid Chronicles—the hilarious, action-packed tales of a two-thousand-year-old Druid pursued by ancient gods in the modern world", "Fantasy", "9780356501192", 11.99, "2011", "Hounded", "c" }
+                    { -1, "Craig Alanson", "We were fighting on the wrong side, of a war we couldn't win. And that was the good news. The Ruhar hit us on Columbus Day.There we were, innocently drifting along the cosmos on our little blue marble, like the native Americans in 1492.Over the horizon come ships of a technologically advanced, aggressive culture, and BAM! There go the good old days, when humans only got killed by each other.So,Columbus Day.It fits.", "Military Sci-fi", "9781520126241", 9.9900000000000002, "2016", "Expeditionary Force: Columbus Day", null },
+                    { -2, "Patrick Rothfuss", "The Name of the Wind is an epic fantasy by Patrick Rothfuss in which the legendary hero Kvothe, now in hiding as Waystone Inn owner Kote, recounts his past experiences to Chronicler, a story collector. The book forms the first of the three parts of Rothfuss's Kingkiller Chronicle.", "Fantasy", "9780756404741", 8.9900000000000002, "2007", "In the Name of the Wind", null },
+                    { -3, "Kevin Hearne", "The first novel in the New York Times bestselling Iron Druid Chronicles—the hilarious, action-packed tales of a two-thousand-year-old Druid pursued by ancient gods in the modern world", "Fantasy", "9780356501192", 11.99, "2011", "Hounded", null },
+                    { -4, "Phillip K Dick", "An addict and an undercover officer battle drug addiction in an alternate historical United States.", "Fiction", "9780345260642", 7.9900000000000002, "1977", "A Scanner Darkly", null },
+                    { -5, "Frank Herbert", "Dune is set in the distant future amidst a feudal interstellar society in which various noble houses control planetary fiefs. It tells the story of young Paul Atreides, whose family accepts the stewardship of the planet Arrakis. While the planet is an inhospitable and sparsely populated desert wasteland, it is the only source of melange, or \"spice\", a drug that extends life and enhances mental abilities. Melange is also necessary for space navigation, which requires a kind of multidimensional awareness and foresight that only the drug provides", "Sci-Fi", "9780441172719", 14.99, "1965", "Dune", null }
                 });
 
             migrationBuilder.InsertData(
@@ -276,9 +276,9 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "ReviewId", "BookId", "Rating", "Review", "UserId" },
                 values: new object[,]
                 {
-                    { -1, -1, 5, "Ten outta ten!  It starts slow, but wait until you meet the star of the show before you make your judgement!", "c" },
                     { -3, -2, 5, "LOVE IT!", "a" },
-                    { -2, -5, 3, "UUUhhhh.......not what I was expecting", "b" }
+                    { -2, -5, 3, "UUUhhhh.......not what I was expecting", "b" },
+                    { -1, -1, 5, "Ten outta ten!  It starts slow, but wait until you meet the star of the show before you make your judgement!", "c" }
                 });
 
             migrationBuilder.InsertData(
@@ -286,8 +286,8 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "CartId", "BookId", "Quantity", "UserId" },
                 values: new object[,]
                 {
-                    { -1, -1, 1, "c" },
-                    { -2, -2, 2, "a" }
+                    { -2, -2, 2, "a" },
+                    { -1, -1, 1, "c" }
                 });
 
             migrationBuilder.CreateIndex(
