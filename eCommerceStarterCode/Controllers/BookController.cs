@@ -51,6 +51,28 @@ namespace eCommerceStarterCode.Controllers
             return StatusCode(201, value);
         }
 
+        [HttpPut("book/edit/{Id}")]
+        public IActionResult EditBook(int Id, [FromBody] Book value)
+        {
+            //Edit Single Book
+            var book = _context.Book.Where(u => u.BookId == Id).SingleOrDefault();
+            if (book == null)
+            {
+                return NotFound("There is no user with that Id.");
+            }
+            book.Title = value.Title;
+            book.Author = value.Author;
+            book.Description = value.Description;
+            book.Genre = value.Genre;
+            book.ReleaseYear = value.ReleaseYear;
+            book.ISBN = value.ISBN;
+            book.Price = value.Price;
+
+            _context.Book.Update(book);
+            _context.SaveChanges();
+            return StatusCode(201, book);
+        }
+
 
     }
 }

@@ -29,7 +29,7 @@ namespace eCommerceStarterCode.Controllers
             var user = _context.User.Where(u =>u.Id==Id);
             return Ok(user);
         }
-        [HttpPut("api/users/{Id}")]
+        [HttpPut("{Id}")]
         public IActionResult EditUser(string Id, [FromBody] User value)
         {
             //Edit Single User
@@ -56,6 +56,8 @@ namespace eCommerceStarterCode.Controllers
             _context.SaveChanges();
             return StatusCode(201, value);
         }
+
+
 
     }
 
