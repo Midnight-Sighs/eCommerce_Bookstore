@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using eCommerceStarterCode.Data;
 using Microsoft.AspNetCore.Authorization;
+using System.Linq;
 
 namespace eCommerceStarterCode.Controllers
 {
@@ -20,8 +21,35 @@ namespace eCommerceStarterCode.Controllers
         {
             _context = context;
         }
+        [HttpGet("api/users/{Id}")]
+        public IActionResult GetAllUsers(string Id)
+        {
+            // Retrieve all users from database
+            var user = _context.User.Where(u =>u.Id==Id);
+            return Ok(user);
+        }
+        [HttpPut("api/users/{Id}")]
+        public IActionResult EditUser(string Id, [FromBody] User value)
+        {
+            //Edit Single User
+            var user = _context.User.Where(u =>u.Id == Id).SingleOrDefault();
+            if (user == null)
+            {
+                return NotFound("There is no user with that Id.");
+            }
+            user.FirstName = value.FirstName;
+            user.LastName = value.LastName;
+            user.StreetAddress = value.StreetAddress;
+            user.City = value.City;
+            user.State = value.State;
+            user.ZipCode = value.ZipCode;
 
-        
+            _context.User.Update(user);
+            _context.SaveChanges();
+            return StatusCode(201, user);
+        }
+
+
     }
 
 }

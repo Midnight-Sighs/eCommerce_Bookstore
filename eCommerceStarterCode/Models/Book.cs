@@ -20,7 +20,7 @@ namespace eCommerceStarterCode.Models
 
         public string ISBN { get; set; }
 
-        public float Price { get; set; }
+        public double Price { get; set; }
 
 
         //FK to Users table
