@@ -47,5 +47,36 @@ namespace eCommerceStarterCode.Controllers
             _context.SaveChanges();
             return StatusCode(201, value);
         }
+
+        [HttpPatch("review/edit/{Id:int}")]
+
+        public IActionResult EditUserReview(int Id, [FromBody] Models.Reviews value)
+        {
+            var review = _context.Reviews.Where(u => u.ReviewId == Id).SingleOrDefault();
+            if (review == null)
+            {
+                return NotFound($"There is no review with that Id {Id}");
+            }
+            review.Review = value.Review;
+            review.Rating = value.Rating;
+
+            _context.Reviews.Update(review);
+            _context.SaveChanges();
+            return StatusCode(201, review);
+        }
+
+        [HttpDelete("review/delete/{id:int}")]
+
+        public IActionResult DeleteReview(int Id)
+        {
+            var reviewToDelete = _context.Reviews.Where(u => u.ReviewId == Id).SingleOrDefault();
+            if (reviewToDelete == null)
+            {
+                return NotFound($"review with ReviewId = {Id} not found");
+            }
+            _context.Reviews.Remove(reviewToDelete);
+            _context.SaveChanges();
+            return StatusCode(202, reviewToDelete);
+        }
     }
 }
