@@ -10,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/book")]
+    [Route(V)]
     [ApiController]
     public class BookController : ControllerBase
     {
+        private const string V = "api/";
         private ApplicationDbContext _context;
 
         public BookController(ApplicationDbContext context)
@@ -33,7 +34,7 @@ namespace eCommerceStarterCode.Controllers
         //id or isbn??? isbn filter/search? 
         //ID is still our primary key.  We included ISBN more because people search for books that way and it's a nice touch. -Midnight
 
-        [HttpGet("{id:int}")]
+        [HttpGet("book/{id:int}")]
 
         public IActionResult GetBookId(int id)
         {
