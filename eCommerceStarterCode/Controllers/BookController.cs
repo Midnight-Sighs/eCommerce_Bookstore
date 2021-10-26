@@ -30,7 +30,8 @@ namespace eCommerceStarterCode.Controllers
             return Ok(books);
         }
 
-        //id or isbn??? isbn filter/search?
+        //id or isbn??? isbn filter/search? 
+        //ID is still our primary key.  We included ISBN more because people search for books that way and it's a nice touch. -Midnight
 
         [HttpGet("{id:int}")]
 
