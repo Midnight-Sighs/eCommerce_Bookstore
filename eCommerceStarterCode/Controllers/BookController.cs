@@ -41,5 +41,14 @@ namespace eCommerceStarterCode.Controllers
             var BookId = _context.Book.Find(id);
             return Ok(BookId);
         }
+
+        [HttpPost("book")]
+        public IActionResult NewBook([FromBody] Models.Book value)
+        {
+            _context.Book.Add(value);
+            _context.SaveChanges();
+            return StatusCode(201, value);
+        }
+
     }
 }
