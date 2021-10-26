@@ -49,7 +49,13 @@ namespace eCommerceStarterCode.Controllers
             _context.SaveChanges();
             return StatusCode(201, user);
         }
-
+        [HttpPost("create")]
+        public IActionResult NewUser([FromBody] User value)
+        {
+            _context.User.Add(value);
+            _context.SaveChanges();
+            return StatusCode(201, value);
+        }
 
     }
 
