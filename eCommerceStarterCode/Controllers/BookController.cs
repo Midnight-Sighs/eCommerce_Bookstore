@@ -73,6 +73,20 @@ namespace eCommerceStarterCode.Controllers
             return StatusCode(201, book);
         }
 
+        [HttpDelete("book/delete/{id:int}")]
+        public async Task<ActionResult<Book>> DeleteBook(int id)
+        {
+            var bookToDelete = _context.Book.Where(u => u.BookId == id).SingleOrDefault();
+            if (bookToDelete == null)
+            {
+                return NotFound($"book with BookId = {id} not found");
+            }
+            _context.Book.Remove(bookToDelete);
+            _context.SaveChanges();
+            return StatusCode(202, bookToDelete);
+        }
+        
+
 
     }
 }
