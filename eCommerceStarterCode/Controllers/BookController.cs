@@ -10,10 +10,11 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
-    [Route("api/book")]
+    [Route(V)]
     [ApiController]
     public class BookController : ControllerBase
     {
+        private const string V = "api/book";
         private ApplicationDbContext _context;
 
         public BookController(ApplicationDbContext context)

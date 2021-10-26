@@ -10,7 +10,7 @@ using eCommerceStarterCode.Data;
 namespace eCommerceStarterCode.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211026014708_InitialCreate")]
+    [Migration("20211026024401_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,15 +50,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0fb9b0a7-59fa-4270-8bb2-a80bd4991fd0",
-                            ConcurrencyStamp = "e8891d4c-a895-4489-9652-8c8e5036da00",
+                            Id = "f2917153-b79f-4897-b8c4-077fe6cfc9c1",
+                            ConcurrencyStamp = "fc70bc8c-7c62-4357-b647-7054263f91af",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "f3efe26a-17a6-4b33-9c2d-ee8ae41b3ebe",
-                            ConcurrencyStamp = "7d228531-a05c-4b74-b000-506febb4a2f3",
+                            Id = "c847e7c3-f1d8-42d8-96b5-fecfbf38bf89",
+                            ConcurrencyStamp = "223dbbfd-ddf5-4a7b-9796-4704b37f425b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -340,6 +340,84 @@ namespace eCommerceStarterCode.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "0f68dd79-06f7-4e50-8371-f453766bee41",
+                            AccessFailedCount = 0,
+                            City = "Some City",
+                            ConcurrencyStamp = "e8fda61e-0fa8-4e0e-b72a-d33216284cec",
+                            Email = "ChewieYou@aol.com",
+                            EmailConfirmed = false,
+                            FirstName = "Chewbaca",
+                            LastName = "Solo",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "84dc7e6f-8499-43cf-b7df-a417568e2b2d",
+                            State = "No States Here",
+                            StreetAddress = "123 Millenium Falcon",
+                            TwoFactorEnabled = false,
+                            UserName = "Chewie",
+                            ZipCode = "12345"
+                        },
+                        new
+                        {
+                            Id = "ebb8f35f-99d2-4c8f-bd21-6d835eb33b77",
+                            AccessFailedCount = 0,
+                            City = "Some City",
+                            ConcurrencyStamp = "95d60cd5-32d6-4e2c-9030-1ddbfd9d8308",
+                            Email = "IKnow@aol.com",
+                            EmailConfirmed = false,
+                            FirstName = "Han",
+                            LastName = "Solo",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "f36e27ed-b3d1-4bf6-bbaa-34791f235202",
+                            State = "No States Here",
+                            StreetAddress = "123 Millenium Falcon",
+                            TwoFactorEnabled = false,
+                            UserName = "Han",
+                            ZipCode = "12345"
+                        },
+                        new
+                        {
+                            Id = "d8622950-01be-42c6-9c7d-fd06f5ac46f3",
+                            AccessFailedCount = 0,
+                            City = "Roach Motel",
+                            ConcurrencyStamp = "47c03e3c-9c96-4957-90cd-bc2f7e9275f9",
+                            Email = "SkippySucks@aol.com",
+                            EmailConfirmed = false,
+                            FirstName = "Joe",
+                            LastName = "Bishop",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "676852cc-cbe3-4ac3-b8d2-c231516e9ab2",
+                            State = "Galaxy Far Away",
+                            StreetAddress = "123 Valkyrie",
+                            TwoFactorEnabled = false,
+                            UserName = "BishopRocks",
+                            ZipCode = "12345"
+                        },
+                        new
+                        {
+                            Id = "21872425-b3ec-4098-9c57-1b143fe7508a",
+                            AccessFailedCount = 0,
+                            City = "Roach Motel",
+                            ConcurrencyStamp = "0c7995f4-bfad-4801-bdee-8b9ade3161cd",
+                            Email = "NoDirtyMonkeys@aol.com",
+                            EmailConfirmed = false,
+                            FirstName = "Skippy",
+                            LastName = "The Magnificent",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "e7fd8c37-2422-464b-889b-2d668df1b03b",
+                            State = "Galaxy Far Away",
+                            StreetAddress = "123 Valkyrie",
+                            TwoFactorEnabled = false,
+                            UserName = "Skippy_The_Mag",
+                            ZipCode = "12345"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -242,12 +242,22 @@ namespace eCommerceStarterCode.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "0fb9b0a7-59fa-4270-8bb2-a80bd4991fd0", "e8891d4c-a895-4489-9652-8c8e5036da00", "User", "USER" });
+                values: new object[,]
+                {
+                    { "f2917153-b79f-4897-b8c4-077fe6cfc9c1", "fc70bc8c-7c62-4357-b647-7054263f91af", "User", "USER" },
+                    { "c847e7c3-f1d8-42d8-96b5-fecfbf38bf89", "223dbbfd-ddf5-4a7b-9796-4704b37f425b", "Admin", "ADMIN" }
+                });
 
             migrationBuilder.InsertData(
-                table: "AspNetRoles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "f3efe26a-17a6-4b33-9c2d-ee8ae41b3ebe", "7d228531-a05c-4b74-b000-506febb4a2f3", "Admin", "ADMIN" });
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "City", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "State", "StreetAddress", "TwoFactorEnabled", "UserName", "ZipCode" },
+                values: new object[,]
+                {
+                    { "0f68dd79-06f7-4e50-8371-f453766bee41", 0, "Some City", "e8fda61e-0fa8-4e0e-b72a-d33216284cec", "ChewieYou@aol.com", false, "Chewbaca", "Solo", false, null, null, null, null, null, false, "84dc7e6f-8499-43cf-b7df-a417568e2b2d", "No States Here", "123 Millenium Falcon", false, "Chewie", "12345" },
+                    { "ebb8f35f-99d2-4c8f-bd21-6d835eb33b77", 0, "Some City", "95d60cd5-32d6-4e2c-9030-1ddbfd9d8308", "IKnow@aol.com", false, "Han", "Solo", false, null, null, null, null, null, false, "f36e27ed-b3d1-4bf6-bbaa-34791f235202", "No States Here", "123 Millenium Falcon", false, "Han", "12345" },
+                    { "d8622950-01be-42c6-9c7d-fd06f5ac46f3", 0, "Roach Motel", "47c03e3c-9c96-4957-90cd-bc2f7e9275f9", "SkippySucks@aol.com", false, "Joe", "Bishop", false, null, null, null, null, null, false, "676852cc-cbe3-4ac3-b8d2-c231516e9ab2", "Galaxy Far Away", "123 Valkyrie", false, "BishopRocks", "12345" },
+                    { "21872425-b3ec-4098-9c57-1b143fe7508a", 0, "Roach Motel", "0c7995f4-bfad-4801-bdee-8b9ade3161cd", "NoDirtyMonkeys@aol.com", false, "Skippy", "The Magnificent", false, null, null, null, null, null, false, "e7fd8c37-2422-464b-889b-2d668df1b03b", "Galaxy Far Away", "123 Valkyrie", false, "Skippy_The_Mag", "12345" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
