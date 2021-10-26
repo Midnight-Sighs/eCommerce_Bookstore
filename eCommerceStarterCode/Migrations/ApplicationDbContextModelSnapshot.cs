@@ -48,15 +48,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "39561f7f-9433-497a-835b-c87606492129",
-                            ConcurrencyStamp = "d1585c9a-bc83-4c75-b013-c8c7b9ed7e58",
+                            Id = "bf952386-047e-412d-9a27-eabbeb0abc81",
+                            ConcurrencyStamp = "b101eb21-e622-400a-985c-166ee6fcf7f9",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "ba4e5e79-8a3f-4abc-b5e2-9130c44b8ea2",
-                            ConcurrencyStamp = "afe1ba1e-219a-495d-8593-0b7b3c29e117",
+                            Id = "6b5ae278-387b-4855-986a-a483dc7d2001",
+                            ConcurrencyStamp = "b8fb0c93-807f-4054-877a-b0184d489dd7",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -277,17 +277,14 @@ namespace eCommerceStarterCode.Migrations
                     b.Property<string>("Review")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ReviewId");
 
                     b.HasIndex("BookId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
 
@@ -298,7 +295,7 @@ namespace eCommerceStarterCode.Migrations
                             BookId = -1,
                             Rating = 5,
                             Review = "Ten outta ten!  It starts slow, but wait until you meet the star of the show before you make your judgement!",
-                            UserId = 3
+                            UserId = "c"
                         },
                         new
                         {
@@ -306,7 +303,7 @@ namespace eCommerceStarterCode.Migrations
                             BookId = -5,
                             Rating = 3,
                             Review = "UUUhhhh.......not what I was expecting",
-                            UserId = 2
+                            UserId = "b"
                         },
                         new
                         {
@@ -314,7 +311,7 @@ namespace eCommerceStarterCode.Migrations
                             BookId = -2,
                             Rating = 5,
                             Review = "LOVE IT!",
-                            UserId = 1
+                            UserId = "a"
                         });
                 });
 
@@ -331,17 +328,14 @@ namespace eCommerceStarterCode.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("CartId");
 
                     b.HasIndex("BookId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("ShoppingCart");
 
@@ -351,14 +345,14 @@ namespace eCommerceStarterCode.Migrations
                             CartId = -1,
                             BookId = -1,
                             Quantity = 1,
-                            UserId = 4
+                            UserId = "c"
                         },
                         new
                         {
                             CartId = -2,
                             BookId = -2,
                             Quantity = 2,
-                            UserId = 3
+                            UserId = "a"
                         });
                 });
 
@@ -447,17 +441,17 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f683661e-4215-435a-b0c6-1426bca2644b",
+                            Id = "a",
                             AccessFailedCount = 0,
                             City = "Some City",
-                            ConcurrencyStamp = "14285598-8bdb-4f95-aa6d-c2da2fc9198a",
+                            ConcurrencyStamp = "4e23df93-619e-433c-b159-59b9272037d0",
                             Email = "ChewieYou@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Chewbaca",
                             LastName = "Solo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0a9b62f6-3a42-409f-afc7-5988ac770e2a",
+                            SecurityStamp = "68163c8e-957c-4cae-b9b4-8ca5f45c9054",
                             State = "No States Here",
                             StreetAddress = "123 Millenium Falcon",
                             TwoFactorEnabled = false,
@@ -466,17 +460,17 @@ namespace eCommerceStarterCode.Migrations
                         },
                         new
                         {
-                            Id = "bc89c48d-c6d4-4719-b295-dd22aa64a4db",
+                            Id = "b",
                             AccessFailedCount = 0,
                             City = "Some City",
-                            ConcurrencyStamp = "f83dd3f3-44ff-4076-97a7-f5928c40ae51",
+                            ConcurrencyStamp = "a4147558-08cc-44ff-b3e8-346950bf67ee",
                             Email = "IKnow@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Han",
                             LastName = "Solo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3e52b266-315a-40bf-ba38-734fcfea021b",
+                            SecurityStamp = "d139d682-f790-46fc-9cc7-2f42f570d38e",
                             State = "No States Here",
                             StreetAddress = "123 Millenium Falcon",
                             TwoFactorEnabled = false,
@@ -485,17 +479,17 @@ namespace eCommerceStarterCode.Migrations
                         },
                         new
                         {
-                            Id = "9c793c4d-94ef-40b5-97af-1767a5792eed",
+                            Id = "c",
                             AccessFailedCount = 0,
                             City = "Roach Motel",
-                            ConcurrencyStamp = "98155998-d415-471f-84d8-ed26e67dabcb",
+                            ConcurrencyStamp = "6539edb9-f41e-4046-9562-3b0fe73376d4",
                             Email = "SkippySucks@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Joe",
                             LastName = "Bishop",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b95e89a4-9816-416b-97d3-d23b3dbf9f85",
+                            SecurityStamp = "4e0463c5-b179-4ab9-a481-17a04984cc9f",
                             State = "Galaxy Far Away",
                             StreetAddress = "123 Valkyrie",
                             TwoFactorEnabled = false,
@@ -504,17 +498,17 @@ namespace eCommerceStarterCode.Migrations
                         },
                         new
                         {
-                            Id = "5709fb0f-12eb-4142-864a-30dac6098ead",
+                            Id = "d",
                             AccessFailedCount = 0,
                             City = "Roach Motel",
-                            ConcurrencyStamp = "1bd58ef5-6a07-4491-b038-cca8c21b000e",
+                            ConcurrencyStamp = "2a1db4a6-74e4-4ec4-8b9e-b655f86fd38f",
                             Email = "NoDirtyMonkeys@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Skippy",
                             LastName = "The Magnificent",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6b88f957-57a6-4fb8-9a93-6ebe9fd1d228",
+                            SecurityStamp = "4960faff-5a85-44c4-b988-04c1ae16fd3a",
                             State = "Galaxy Far Away",
                             StreetAddress = "123 Valkyrie",
                             TwoFactorEnabled = false,
@@ -593,7 +587,7 @@ namespace eCommerceStarterCode.Migrations
 
                     b.HasOne("eCommerceStarterCode.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Book");
 
@@ -610,7 +604,7 @@ namespace eCommerceStarterCode.Migrations
 
                     b.HasOne("eCommerceStarterCode.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Book");
 

@@ -158,13 +158,94 @@ namespace eCommerceStarterCode.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Book",
+                columns: table => new
+                {
+                    BookId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Genre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ReleaseYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ISBN = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Book", x => x.BookId);
+                    table.ForeignKey(
+                        name: "FK_Book_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reviews",
+                columns: table => new
+                {
+                    ReviewId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Rating = table.Column<int>(type: "int", nullable: false),
+                    Review = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reviews", x => x.ReviewId);
+                    table.ForeignKey(
+                        name: "FK_Reviews_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Reviews_Book_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Book",
+                        principalColumn: "BookId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ShoppingCart",
+                columns: table => new
+                {
+                    CartId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    BookId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShoppingCart", x => x.CartId);
+                    table.ForeignKey(
+                        name: "FK_ShoppingCart_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ShoppingCart_Book_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Book",
+                        principalColumn: "BookId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "8be52fe5-4f35-4d63-91ca-d9994f67b163", "e519ba7e-85f1-4151-8d00-1310482532a4", "User", "USER" },
-                    { "a68804ff-bc45-4aaf-8421-96f96acd14dd", "845e805f-74df-46d1-801f-f47de529b28d", "Admin", "ADMIN" }
+                    { "bf952386-047e-412d-9a27-eabbeb0abc81", "b101eb21-e622-400a-985c-166ee6fcf7f9", "User", "USER" },
+                    { "6b5ae278-387b-4855-986a-a483dc7d2001", "b8fb0c93-807f-4054-877a-b0184d489dd7", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -172,10 +253,41 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "City", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "State", "StreetAddress", "TwoFactorEnabled", "UserName", "ZipCode" },
                 values: new object[,]
                 {
-                    { "ba344a0e-b2c7-409d-a3ce-06189a38efce", 0, "Some City", "fdf33a9e-17dc-4c49-9128-6a849cde6877", "ChewieYou@aol.com", false, "Chewbaca", "Solo", false, null, null, null, null, null, false, "7a0843ad-17f7-4369-8e11-b5cb9c298e58", "No States Here", "123 Millenium Falcon", false, "Chewie", "12345" },
-                    { "d8d14bb7-1cbd-4ded-999c-2f684aafdc81", 0, "Some City", "fc3728c9-f3e4-433b-828c-a0fd9ce1f9a2", "IKnow@aol.com", false, "Han", "Solo", false, null, null, null, null, null, false, "09fc418e-246f-46d2-a291-1995b16d5fd9", "No States Here", "123 Millenium Falcon", false, "Han", "12345" },
-                    { "a46be1d9-0ce7-44ff-920f-ed7c67d7bebb", 0, "Roach Motel", "8c522c86-e520-4788-a214-d0307b0eecd9", "SkippySucks@aol.com", false, "Joe", "Bishop", false, null, null, null, null, null, false, "8ae0f980-ecba-4af1-89ef-582fb0dea539", "Galaxy Far Away", "123 Valkyrie", false, "BishopRocks", "12345" },
-                    { "55e04b82-d91f-4bd5-8b91-e87447413124", 0, "Roach Motel", "2c9ea568-ffa3-4fd2-a55f-890247d8fe88", "NoDirtyMonkeys@aol.com", false, "Skippy", "The Magnificent", false, null, null, null, null, null, false, "9c2219d3-b0a8-4c2a-aa03-65c8d6274d98", "Galaxy Far Away", "123 Valkyrie", false, "Skippy_The_Mag", "12345" }
+                    { "a", 0, "Some City", "4e23df93-619e-433c-b159-59b9272037d0", "ChewieYou@aol.com", false, "Chewbaca", "Solo", false, null, null, null, null, null, false, "68163c8e-957c-4cae-b9b4-8ca5f45c9054", "No States Here", "123 Millenium Falcon", false, "Chewie", "12345" },
+                    { "b", 0, "Some City", "a4147558-08cc-44ff-b3e8-346950bf67ee", "IKnow@aol.com", false, "Han", "Solo", false, null, null, null, null, null, false, "d139d682-f790-46fc-9cc7-2f42f570d38e", "No States Here", "123 Millenium Falcon", false, "Han", "12345" },
+                    { "c", 0, "Roach Motel", "6539edb9-f41e-4046-9562-3b0fe73376d4", "SkippySucks@aol.com", false, "Joe", "Bishop", false, null, null, null, null, null, false, "4e0463c5-b179-4ab9-a481-17a04984cc9f", "Galaxy Far Away", "123 Valkyrie", false, "BishopRocks", "12345" },
+                    { "d", 0, "Roach Motel", "2a1db4a6-74e4-4ec4-8b9e-b655f86fd38f", "NoDirtyMonkeys@aol.com", false, "Skippy", "The Magnificent", false, null, null, null, null, null, false, "4960faff-5a85-44c4-b988-04c1ae16fd3a", "Galaxy Far Away", "123 Valkyrie", false, "Skippy_The_Mag", "12345" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Book",
+                columns: new[] { "BookId", "Author", "Description", "Genre", "ISBN", "Price", "ReleaseYear", "Title", "UserId" },
+                values: new object[,]
+                {
+                    { -1, "Craig Alanson", "We were fighting on the wrong side, of a war we couldn't win. And that was the good news. The Ruhar hit us on Columbus Day.There we were, innocently drifting along the cosmos on our little blue marble, like the native Americans in 1492.Over the horizon come ships of a technologically advanced, aggressive culture, and BAM! There go the good old days, when humans only got killed by each other.So,Columbus Day.It fits.", "Military Sci-fi", "9781520126241", 9.9900000000000002, "2016", "Expeditionary Force: Columbus Day", null },
+                    { -2, "Patrick Rothfuss", "The Name of the Wind is an epic fantasy by Patrick Rothfuss in which the legendary hero Kvothe, now in hiding as Waystone Inn owner Kote, recounts his past experiences to Chronicler, a story collector. The book forms the first of the three parts of Rothfuss's Kingkiller Chronicle.", "Fantasy", "9780756404741", 8.9900000000000002, "2007", "In the Name of the Wind", null },
+                    { -3, "Kevin Hearne", "The first novel in the New York Times bestselling Iron Druid Chronicles—the hilarious, action-packed tales of a two-thousand-year-old Druid pursued by ancient gods in the modern world", "Fantasy", "9780356501192", 11.99, "2011", "Hounded", null },
+                    { -4, "Phillip K Dick", "An addict and an undercover officer battle drug addiction in an alternate historical United States.", "Fiction", "9780345260642", 7.9900000000000002, "1977", "A Scanner Darkly", null },
+                    { -5, "Frank Herbert", "Dune is set in the distant future amidst a feudal interstellar society in which various noble houses control planetary fiefs. It tells the story of young Paul Atreides, whose family accepts the stewardship of the planet Arrakis. While the planet is an inhospitable and sparsely populated desert wasteland, it is the only source of melange, or \"spice\", a drug that extends life and enhances mental abilities. Melange is also necessary for space navigation, which requires a kind of multidimensional awareness and foresight that only the drug provides", "Sci-Fi", "9780441172719", 14.99, "1965", "Dune", null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Reviews",
+                columns: new[] { "ReviewId", "BookId", "Rating", "Review", "UserId" },
+                values: new object[,]
+                {
+                    { -3, -2, 5, "LOVE IT!", "a" },
+                    { -2, -5, 3, "UUUhhhh.......not what I was expecting", "b" },
+                    { -1, -1, 5, "Ten outta ten!  It starts slow, but wait until you meet the star of the show before you make your judgement!", "c" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ShoppingCart",
+                columns: new[] { "CartId", "BookId", "Quantity", "UserId" },
+                values: new object[,]
+                {
+                    { -2, -2, 2, "a" },
+                    { -1, -1, 1, "c" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -216,6 +328,31 @@ namespace eCommerceStarterCode.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Book_UserId",
+                table: "Book",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reviews_BookId",
+                table: "Reviews",
+                column: "BookId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reviews_UserId",
+                table: "Reviews",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShoppingCart_BookId",
+                table: "ShoppingCart",
+                column: "BookId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShoppingCart_UserId",
+                table: "ShoppingCart",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -236,7 +373,16 @@ namespace eCommerceStarterCode.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Reviews");
+
+            migrationBuilder.DropTable(
+                name: "ShoppingCart");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Book");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

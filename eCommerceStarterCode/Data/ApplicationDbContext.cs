@@ -26,10 +26,10 @@ namespace eCommerceStarterCode.Data
             
             
             modelBuilder.Entity<User>().HasData(
-                new User { FirstName = "Chewbaca", LastName = "Solo", UserName = "Chewie", Email = "ChewieYou@aol.com", StreetAddress = "123 Millenium Falcon", City = "Some City", State = "No States Here", ZipCode = "12345"},
-                new User { FirstName = "Han", LastName = "Solo", UserName = "Han", Email = "IKnow@aol.com", StreetAddress = "123 Millenium Falcon", City = "Some City", State = "No States Here", ZipCode = "12345" },
-                new User { FirstName = "Joe", LastName = "Bishop", UserName = "BishopRocks", Email = "SkippySucks@aol.com", StreetAddress = "123 Valkyrie", City = "Roach Motel", State = "Galaxy Far Away", ZipCode = "12345" },
-                new User { FirstName = "Skippy", LastName = "The Magnificent", UserName = "Skippy_The_Mag", Email = "NoDirtyMonkeys@aol.com", StreetAddress = "123 Valkyrie", City = "Roach Motel", State = "Galaxy Far Away", ZipCode = "12345" }
+                new User { Id="a", FirstName = "Chewbaca", LastName = "Solo", UserName = "Chewie", Email = "ChewieYou@aol.com", StreetAddress = "123 Millenium Falcon", City = "Some City", State = "No States Here", ZipCode = "12345"},
+                new User { Id="b", FirstName = "Han", LastName = "Solo", UserName = "Han", Email = "IKnow@aol.com", StreetAddress = "123 Millenium Falcon", City = "Some City", State = "No States Here", ZipCode = "12345" },
+                new User { Id="c", FirstName = "Joe", LastName = "Bishop", UserName = "BishopRocks", Email = "SkippySucks@aol.com", StreetAddress = "123 Valkyrie", City = "Roach Motel", State = "Galaxy Far Away", ZipCode = "12345" },
+                new User { Id="d", FirstName = "Skippy", LastName = "The Magnificent", UserName = "Skippy_The_Mag", Email = "NoDirtyMonkeys@aol.com", StreetAddress = "123 Valkyrie", City = "Roach Motel", State = "Galaxy Far Away", ZipCode = "12345" }
                 );
 
             modelBuilder.Entity<Book>().HasData(
@@ -41,14 +41,14 @@ namespace eCommerceStarterCode.Data
                 ) ;
 
             modelBuilder.Entity<Reviews>().HasData(
-                new Reviews { ReviewId=-1, BookId = -1, UserId=3, Review = "Ten outta ten!  It starts slow, but wait until you meet the star of the show before you make your judgement!", Rating = 5 },
-                new Reviews { ReviewId=-2,BookId = -5, UserId=2, Review = "UUUhhhh.......not what I was expecting", Rating = 3 },
-                new Reviews { ReviewId=-3, BookId = -2, UserId=1, Review = "LOVE IT!", Rating = 5}
+                new Reviews { ReviewId=-1, BookId = -1, UserId="c", Review = "Ten outta ten!  It starts slow, but wait until you meet the star of the show before you make your judgement!", Rating = 5 },
+                new Reviews { ReviewId=-2,BookId = -5,  UserId="b", Review = "UUUhhhh.......not what I was expecting", Rating = 3 },
+                new Reviews { ReviewId=-3, BookId = -2,  UserId="a", Review = "LOVE IT!", Rating = 5}
                 ); ;
 
             modelBuilder.Entity<ShoppingCart>().HasData(
-                new ShoppingCart { CartId=-1, BookId = -1, UserId = 4, Quantity = 1 },
-                new ShoppingCart { CartId=-2, BookId = -2, UserId = 3, Quantity = 2 }
+                new ShoppingCart { UserId="c", CartId=-1, BookId = -1, Quantity = 1 },
+                new ShoppingCart { UserId ="a", CartId=-2, BookId = -2, Quantity = 2 }
                 );
         }
 
