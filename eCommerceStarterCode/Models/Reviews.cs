@@ -6,7 +6,7 @@ namespace eCommerceStarterCode.Models
     public class Reviews
     {
         [Key]
-        public int ReviewID { get; set; }
+        public int ReviewId { get; set; }
 
         //FK to Books table
         [ForeignKey("BookID")]
@@ -15,7 +15,7 @@ namespace eCommerceStarterCode.Models
 
         //FK to Users Table
         [ForeignKey("UserId")] 
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
 
         public int Rating { get; set; }

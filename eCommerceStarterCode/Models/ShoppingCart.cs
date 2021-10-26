@@ -8,19 +8,19 @@ namespace eCommerceStarterCode.Models
         [Key]
         public int CartId { get; set; }
         
-        public int Quanity { get; set; }
+        public int Quantity { get; set; }
 
         //Foreign Key to User Table
         [ForeignKey("UserID")]
 
-        public string UserID { get; set; }
+        public int UserId { get; set; }
 
         public User User { get; set; }
 
         //Foreign Key to Book Table
         [ForeignKey("BookId")]
 
-        public int BookID { get; set; }
+        public int BookId { get; set; }
 
         public Book Book { get; set; }
     }
