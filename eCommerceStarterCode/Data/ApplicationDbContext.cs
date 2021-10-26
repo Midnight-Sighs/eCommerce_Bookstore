@@ -12,6 +12,9 @@ namespace eCommerceStarterCode.Data
         {
 
         }
+        public DbSet<Book> Book { get; set; }
+        public DbSet<Reviews> Reviews { get; set; }
+        public DbSet<ShoppingCart> ShoppingCart { get; set; }
 
         public DbSet<User> User { get; set; }
         public DbSet<Book> Book { get; set; }

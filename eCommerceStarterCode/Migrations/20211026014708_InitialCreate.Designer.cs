@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eCommerceStarterCode.Data;
 
 namespace eCommerceStarterCode.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211026014708_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bf952386-047e-412d-9a27-eabbeb0abc81",
-                            ConcurrencyStamp = "b101eb21-e622-400a-985c-166ee6fcf7f9",
+                            Id = "0fb9b0a7-59fa-4270-8bb2-a80bd4991fd0",
+                            ConcurrencyStamp = "e8891d4c-a895-4489-9652-8c8e5036da00",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "6b5ae278-387b-4855-986a-a483dc7d2001",
-                            ConcurrencyStamp = "b8fb0c93-807f-4054-877a-b0184d489dd7",
+                            Id = "f3efe26a-17a6-4b33-9c2d-ee8ae41b3ebe",
+                            ConcurrencyStamp = "7d228531-a05c-4b74-b000-506febb4a2f3",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -202,68 +204,11 @@ namespace eCommerceStarterCode.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Book");
-
-                    b.HasData(
-                        new
-                        {
-                            BookId = -1,
-                            Author = "Craig Alanson",
-                            Description = "We were fighting on the wrong side, of a war we couldn't win. And that was the good news. The Ruhar hit us on Columbus Day.There we were, innocently drifting along the cosmos on our little blue marble, like the native Americans in 1492.Over the horizon come ships of a technologically advanced, aggressive culture, and BAM! There go the good old days, when humans only got killed by each other.So,Columbus Day.It fits.",
-                            Genre = "Military Sci-fi",
-                            ISBN = "9781520126241",
-                            Price = 9.9900000000000002,
-                            ReleaseYear = "2016",
-                            Title = "Expeditionary Force: Columbus Day"
-                        },
-                        new
-                        {
-                            BookId = -2,
-                            Author = "Patrick Rothfuss",
-                            Description = "The Name of the Wind is an epic fantasy by Patrick Rothfuss in which the legendary hero Kvothe, now in hiding as Waystone Inn owner Kote, recounts his past experiences to Chronicler, a story collector. The book forms the first of the three parts of Rothfuss's Kingkiller Chronicle.",
-                            Genre = "Fantasy",
-                            ISBN = "9780756404741",
-                            Price = 8.9900000000000002,
-                            ReleaseYear = "2007",
-                            Title = "In the Name of the Wind"
-                        },
-                        new
-                        {
-                            BookId = -3,
-                            Author = "Kevin Hearne",
-                            Description = "The first novel in the New York Times bestselling Iron Druid Chronicles—the hilarious, action-packed tales of a two-thousand-year-old Druid pursued by ancient gods in the modern world",
-                            Genre = "Fantasy",
-                            ISBN = "9780356501192",
-                            Price = 11.99,
-                            ReleaseYear = "2011",
-                            Title = "Hounded"
-                        },
-                        new
-                        {
-                            BookId = -4,
-                            Author = "Phillip K Dick",
-                            Description = "An addict and an undercover officer battle drug addiction in an alternate historical United States.",
-                            Genre = "Fiction",
-                            ISBN = "9780345260642",
-                            Price = 7.9900000000000002,
-                            ReleaseYear = "1977",
-                            Title = "A Scanner Darkly"
-                        },
-                        new
-                        {
-                            BookId = -5,
-                            Author = "Frank Herbert",
-                            Description = "Dune is set in the distant future amidst a feudal interstellar society in which various noble houses control planetary fiefs. It tells the story of young Paul Atreides, whose family accepts the stewardship of the planet Arrakis. While the planet is an inhospitable and sparsely populated desert wasteland, it is the only source of melange, or \"spice\", a drug that extends life and enhances mental abilities. Melange is also necessary for space navigation, which requires a kind of multidimensional awareness and foresight that only the drug provides",
-                            Genre = "Sci-Fi",
-                            ISBN = "9780441172719",
-                            Price = 14.99,
-                            ReleaseYear = "1965",
-                            Title = "Dune"
-                });
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.Reviews", b =>
                 {
-                    b.Property<int>("ReviewId")
+                    b.Property<int>("ReviewID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -280,39 +225,13 @@ namespace eCommerceStarterCode.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("ReviewId");
+                    b.HasKey("ReviewID");
 
                     b.HasIndex("BookId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Reviews");
-
-                    b.HasData(
-                        new
-                        {
-                            ReviewId = -1,
-                            BookId = -1,
-                            Rating = 5,
-                            Review = "Ten outta ten!  It starts slow, but wait until you meet the star of the show before you make your judgement!",
-                            UserId = "c"
-                        },
-                        new
-                        {
-                            ReviewId = -2,
-                            BookId = -5,
-                            Rating = 3,
-                            Review = "UUUhhhh.......not what I was expecting",
-                            UserId = "b"
-                        },
-                        new
-                        {
-                            ReviewId = -3,
-                            BookId = -2,
-                            Rating = 5,
-                            Review = "LOVE IT!",
-                            UserId = "a"
-                });
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.ShoppingCart", b =>
@@ -322,38 +241,22 @@ namespace eCommerceStarterCode.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BookId")
+                    b.Property<int>("BookID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int>("Quanity")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("UserID")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("CartId");
 
-                    b.HasIndex("BookId");
+                    b.HasIndex("BookID");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserID");
 
                     b.ToTable("ShoppingCart");
-
-                    b.HasData(
-                        new
-                        {
-                            CartId = -1,
-                            BookId = -1,
-                            Quantity = 1,
-                            UserId = "c"
-                        },
-                        new
-                        {
-                            CartId = -2,
-                            BookId = -2,
-                            Quantity = 2,
-                            UserId = "a"
-                        });
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.User", b =>
@@ -437,84 +340,6 @@ namespace eCommerceStarterCode.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "a",
-                            AccessFailedCount = 0,
-                            City = "Some City",
-                            ConcurrencyStamp = "4e23df93-619e-433c-b159-59b9272037d0",
-                            Email = "ChewieYou@aol.com",
-                            EmailConfirmed = false,
-                            FirstName = "Chewbaca",
-                            LastName = "Solo",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "68163c8e-957c-4cae-b9b4-8ca5f45c9054",
-                            State = "No States Here",
-                            StreetAddress = "123 Millenium Falcon",
-                            TwoFactorEnabled = false,
-                            UserName = "Chewie",
-                            ZipCode = "12345"
-                        },
-                        new
-                        {
-                            Id = "b",
-                            AccessFailedCount = 0,
-                            City = "Some City",
-                            ConcurrencyStamp = "a4147558-08cc-44ff-b3e8-346950bf67ee",
-                            Email = "IKnow@aol.com",
-                            EmailConfirmed = false,
-                            FirstName = "Han",
-                            LastName = "Solo",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "d139d682-f790-46fc-9cc7-2f42f570d38e",
-                            State = "No States Here",
-                            StreetAddress = "123 Millenium Falcon",
-                            TwoFactorEnabled = false,
-                            UserName = "Han",
-                            ZipCode = "12345"
-                        },
-                        new
-                        {
-                            Id = "c",
-                            AccessFailedCount = 0,
-                            City = "Roach Motel",
-                            ConcurrencyStamp = "6539edb9-f41e-4046-9562-3b0fe73376d4",
-                            Email = "SkippySucks@aol.com",
-                            EmailConfirmed = false,
-                            FirstName = "Joe",
-                            LastName = "Bishop",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "4e0463c5-b179-4ab9-a481-17a04984cc9f",
-                            State = "Galaxy Far Away",
-                            StreetAddress = "123 Valkyrie",
-                            TwoFactorEnabled = false,
-                            UserName = "BishopRocks",
-                            ZipCode = "12345"
-                        },
-                        new
-                        {
-                            Id = "d",
-                            AccessFailedCount = 0,
-                            City = "Roach Motel",
-                            ConcurrencyStamp = "2a1db4a6-74e4-4ec4-8b9e-b655f86fd38f",
-                            Email = "NoDirtyMonkeys@aol.com",
-                            EmailConfirmed = false,
-                            FirstName = "Skippy",
-                            LastName = "The Magnificent",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "4960faff-5a85-44c4-b988-04c1ae16fd3a",
-                            State = "Galaxy Far Away",
-                            StreetAddress = "123 Valkyrie",
-                            TwoFactorEnabled = false,
-                            UserName = "Skippy_The_Mag",
-                            ZipCode = "12345"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -598,13 +423,13 @@ namespace eCommerceStarterCode.Migrations
                 {
                     b.HasOne("eCommerceStarterCode.Models.Book", "Book")
                         .WithMany()
-                        .HasForeignKey("BookId")
+                        .HasForeignKey("BookID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("eCommerceStarterCode.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserID");
 
                     b.Navigation("Book");
 
