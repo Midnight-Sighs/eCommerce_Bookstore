@@ -14,7 +14,7 @@ namespace eCommerceStarterCode.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-        private const string V = "api/book";
+        private const string V = "api/";
         private ApplicationDbContext _context;
 
         public BookController(ApplicationDbContext context)
@@ -33,7 +33,7 @@ namespace eCommerceStarterCode.Controllers
 
         //id or isbn??? isbn filter/search?
 
-        [HttpGet("{id:int}")]
+        [HttpGet("book/{id:int}")]
 
         public IActionResult GetBookId(int id)
         {
