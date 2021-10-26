@@ -48,15 +48,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bf952386-047e-412d-9a27-eabbeb0abc81",
-                            ConcurrencyStamp = "b101eb21-e622-400a-985c-166ee6fcf7f9",
+                            Id = "7e9fffd1-cf5f-47f4-aea0-32076d7d5918",
+                            ConcurrencyStamp = "6ec4282b-c55f-43fc-aef9-d74b769a3751",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "6b5ae278-387b-4855-986a-a483dc7d2001",
-                            ConcurrencyStamp = "b8fb0c93-807f-4054-877a-b0184d489dd7",
+                            Id = "5799f067-da25-42c8-9a4a-50e12dca041c",
+                            ConcurrencyStamp = "895078ee-89e3-4946-87a5-58fca89dcecb",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -185,8 +185,8 @@ namespace eCommerceStarterCode.Migrations
                     b.Property<string>("ISBN")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("Price")
-                        .HasColumnType("real");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("ReleaseYear")
                         .HasColumnType("nvarchar(max)");
@@ -213,7 +213,8 @@ namespace eCommerceStarterCode.Migrations
                             ISBN = "9781520126241",
                             Price = 9.9900000000000002,
                             ReleaseYear = "2016",
-                            Title = "Expeditionary Force: Columbus Day"
+                            Title = "Expeditionary Force: Columbus Day",
+                            UserId = "a"
                         },
                         new
                         {
@@ -224,7 +225,8 @@ namespace eCommerceStarterCode.Migrations
                             ISBN = "9780756404741",
                             Price = 8.9900000000000002,
                             ReleaseYear = "2007",
-                            Title = "In the Name of the Wind"
+                            Title = "In the Name of the Wind",
+                            UserId = "a"
                         },
                         new
                         {
@@ -235,7 +237,8 @@ namespace eCommerceStarterCode.Migrations
                             ISBN = "9780356501192",
                             Price = 11.99,
                             ReleaseYear = "2011",
-                            Title = "Hounded"
+                            Title = "Hounded",
+                            UserId = "c"
                         },
                         new
                         {
@@ -246,7 +249,8 @@ namespace eCommerceStarterCode.Migrations
                             ISBN = "9780345260642",
                             Price = 7.9900000000000002,
                             ReleaseYear = "1977",
-                            Title = "A Scanner Darkly"
+                            Title = "A Scanner Darkly",
+                            UserId = "b"
                         },
                         new
                         {
@@ -257,8 +261,9 @@ namespace eCommerceStarterCode.Migrations
                             ISBN = "9780441172719",
                             Price = 14.99,
                             ReleaseYear = "1965",
-                            Title = "Dune"
-                });
+                            Title = "Dune",
+                            UserId = "b"
+                        });
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.Reviews", b =>
@@ -312,7 +317,7 @@ namespace eCommerceStarterCode.Migrations
                             Rating = 5,
                             Review = "LOVE IT!",
                             UserId = "a"
-                });
+                        });
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.ShoppingCart", b =>
@@ -444,14 +449,14 @@ namespace eCommerceStarterCode.Migrations
                             Id = "a",
                             AccessFailedCount = 0,
                             City = "Some City",
-                            ConcurrencyStamp = "4e23df93-619e-433c-b159-59b9272037d0",
+                            ConcurrencyStamp = "88a07e5e-6d32-4d14-93e0-f43ad111553f",
                             Email = "ChewieYou@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Chewbaca",
                             LastName = "Solo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "68163c8e-957c-4cae-b9b4-8ca5f45c9054",
+                            SecurityStamp = "6944c61d-8884-45d3-b0c2-a332f1acf61b",
                             State = "No States Here",
                             StreetAddress = "123 Millenium Falcon",
                             TwoFactorEnabled = false,
@@ -463,14 +468,14 @@ namespace eCommerceStarterCode.Migrations
                             Id = "b",
                             AccessFailedCount = 0,
                             City = "Some City",
-                            ConcurrencyStamp = "a4147558-08cc-44ff-b3e8-346950bf67ee",
+                            ConcurrencyStamp = "06a18ba1-e02c-4518-9f82-4a3f4de3f3bd",
                             Email = "IKnow@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Han",
                             LastName = "Solo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d139d682-f790-46fc-9cc7-2f42f570d38e",
+                            SecurityStamp = "bfb38444-49ec-4535-a730-d2e2ec0e4c7e",
                             State = "No States Here",
                             StreetAddress = "123 Millenium Falcon",
                             TwoFactorEnabled = false,
@@ -482,14 +487,14 @@ namespace eCommerceStarterCode.Migrations
                             Id = "c",
                             AccessFailedCount = 0,
                             City = "Roach Motel",
-                            ConcurrencyStamp = "6539edb9-f41e-4046-9562-3b0fe73376d4",
+                            ConcurrencyStamp = "76847092-867d-4cf9-a12f-f64a32374c70",
                             Email = "SkippySucks@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Joe",
                             LastName = "Bishop",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4e0463c5-b179-4ab9-a481-17a04984cc9f",
+                            SecurityStamp = "dfacc0b1-bb5f-47ff-b04c-a4ae89923d78",
                             State = "Galaxy Far Away",
                             StreetAddress = "123 Valkyrie",
                             TwoFactorEnabled = false,
@@ -501,14 +506,14 @@ namespace eCommerceStarterCode.Migrations
                             Id = "d",
                             AccessFailedCount = 0,
                             City = "Roach Motel",
-                            ConcurrencyStamp = "2a1db4a6-74e4-4ec4-8b9e-b655f86fd38f",
+                            ConcurrencyStamp = "6d1ea5e8-9dbf-4531-af84-103172f47fcc",
                             Email = "NoDirtyMonkeys@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Skippy",
                             LastName = "The Magnificent",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4960faff-5a85-44c4-b988-04c1ae16fd3a",
+                            SecurityStamp = "4716d742-8bc7-4371-8b11-a57815f6d03c",
                             State = "Galaxy Far Away",
                             StreetAddress = "123 Valkyrie",
                             TwoFactorEnabled = false,
