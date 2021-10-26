@@ -30,23 +30,28 @@ namespace eCommerceStarterCode.Controllers
             return Ok(cart);
         }
 
-       // [HttpDelete("shoppingCart/bookId:int")]
+        [HttpDelete("shoppingCart/delete/{Id:int}")]
 
-        //public IActionResult DeleteBook(int bookId)
-        //{
-        //    _context.ShoppingCart.Where(s=>s.BookId==bookId).Remove(s=>s.BookId==bookId).SingleOrDefault();
-        //    _context.SaveChanges();
-        //    return StatusCode(200, bookId);
-        //}
+        public IActionResult DeleteBook(int Id)
+        {
+            var bookToDelete = _context.ShoppingCart.Where(u => u.BookId == Id).SingleOrDefault();
+            if (bookToDelete == null)
+            {
+                return NotFound($"book with BookId = {Id} not found");
+            }
+            _context.ShoppingCart.Remove(bookToDelete);
+            _context.SaveChanges();
+            return StatusCode(200, bookToDelete);
+        }
 
-        //[HttpPatch("shoppingCart/bookId:int")]
+        [HttpPost("shoppingCart/addBook/{Id:int}")]
 
-        //public IActionResult AddBook(int bookId)
-        //{
-        //    _context.ShoppingCart.Add(bookId).SingleOrDefault();
-        //    _context.SaveChanges();
-        //    return StatusCode(201, bookId);
-        //}
+        public IActionResult AddBook([FromBody] ShoppingCart value)
+        {
+            _context.ShoppingCart.Add(value);
+            _context.SaveChanges();
+            return StatusCode(201, value);
+        }
     }
 
 }        
