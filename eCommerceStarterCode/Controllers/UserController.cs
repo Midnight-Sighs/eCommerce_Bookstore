@@ -16,12 +16,13 @@ namespace eCommerceStarterCode.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private const string V = "{Id}";
         private readonly ApplicationDbContext _context;
         public UserController(ApplicationDbContext context)
         {
             _context = context;
         }
-        [HttpGet("api/users/{Id}")]
+        [HttpGet(V)]
         public IActionResult GetAllUsers(string Id)
         {
             // Retrieve all users from database
