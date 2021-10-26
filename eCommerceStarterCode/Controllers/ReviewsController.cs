@@ -40,7 +40,7 @@ namespace eCommerceStarterCode.Controllers
             return Ok(review);
         }
 
-        [HttpPost("create")]
+        [HttpPost("reviews/create")]
         public IActionResult PostUserrEVIEW([FromBody] Models.Reviews value)
         {
             _context.Reviews.Add(value);
