@@ -348,3 +348,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+eCommerceStarterCode/Migrations/20211026163422_First Migration.cs
+eCommerceStarterCode/Migrations/20211026163422_First Migration.Designer.cs
+eCommerceStarterCode/Migrations/20211026210716_initial.cs
+eCommerceStarterCode/Migrations/ApplicationDbContextModelSnapshot.cs

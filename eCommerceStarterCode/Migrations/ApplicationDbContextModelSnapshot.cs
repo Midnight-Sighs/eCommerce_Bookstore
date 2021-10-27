@@ -48,17 +48,31 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "74156688-da56-4e03-b8ef-67814940d7ab",
-                            ConcurrencyStamp = "dc6eb0c5-6a2a-4385-9ccb-514596cfcb5f",
+                            Id = "75b5e25c-6836-4d7e-8fb9-86a0504413a2",
+                            ConcurrencyStamp = "fc115b0e-33d9-4f3e-a346-ef6a075fddc7",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "7d182381-88a7-4f15-8944-4297da8e75cf",
-                            ConcurrencyStamp = "7285e612-23f3-459d-82a5-0845e30d6270",
+                            Id = "3d6e5d46-432d-41a3-989a-5c422e4a8f72",
+                            ConcurrencyStamp = "3275bb04-4ed6-474e-9649-b31990e88af3",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "c74defa9-c13f-4428-b2cf-87a8d6622183",
+                            ConcurrencyStamp = "ea600f74-82af-4254-a418-172225923af4",
+                            Name = "Buyer",
+                            NormalizedName = "BUYER"
+                        },
+                        new
+                        {
+                            Id = "d6b76321-f0e4-4128-8434-9a16f10a37d1",
+                            ConcurrencyStamp = "78218429-a1bf-4ace-9fae-8b198cb41001",
+                            Name = "Seller",
+                            NormalizedName = "SELLER"
                         });
                 });
 
@@ -444,14 +458,14 @@ namespace eCommerceStarterCode.Migrations
                             Id = "a",
                             AccessFailedCount = 0,
                             City = "Some City",
-                            ConcurrencyStamp = "fd39c277-4509-4c2d-81f9-dc746ed7f570",
+                            ConcurrencyStamp = "eb7657c3-07d6-4f65-8825-81d3816bae84",
                             Email = "ChewieYou@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Chewbaca",
                             LastName = "Solo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "482d9bf6-00dd-40a3-8a11-864e3f07f2b4",
+                            SecurityStamp = "29bd79c1-d8a4-4a6b-ad5f-1da65be5585a",
                             State = "No States Here",
                             StreetAddress = "123 Millenium Falcon",
                             TwoFactorEnabled = false,
@@ -463,14 +477,14 @@ namespace eCommerceStarterCode.Migrations
                             Id = "b",
                             AccessFailedCount = 0,
                             City = "Some City",
-                            ConcurrencyStamp = "460447d2-5d76-4998-bf99-3a2c4a62289f",
+                            ConcurrencyStamp = "98fa017b-ed53-4116-883a-bfe6b182367f",
                             Email = "IKnow@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Han",
                             LastName = "Solo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "49999876-e240-4ab4-913b-42299f7d4893",
+                            SecurityStamp = "b0fe5eec-1d3c-4f5f-bd75-54ace237495d",
                             State = "No States Here",
                             StreetAddress = "123 Millenium Falcon",
                             TwoFactorEnabled = false,
@@ -482,14 +496,14 @@ namespace eCommerceStarterCode.Migrations
                             Id = "c",
                             AccessFailedCount = 0,
                             City = "Roach Motel",
-                            ConcurrencyStamp = "c5cc76e6-8b87-4c34-b6e8-4bac25530f0e",
+                            ConcurrencyStamp = "373a3ca9-19da-4061-9029-0336a8a28d46",
                             Email = "SkippySucks@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Joe",
                             LastName = "Bishop",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "56c78cc5-a440-4272-a51e-28e511388eaf",
+                            SecurityStamp = "e0ddf0e1-0d27-4f3e-9c4e-a6259d275169",
                             State = "Galaxy Far Away",
                             StreetAddress = "123 Valkyrie",
                             TwoFactorEnabled = false,
@@ -501,14 +515,14 @@ namespace eCommerceStarterCode.Migrations
                             Id = "d",
                             AccessFailedCount = 0,
                             City = "Roach Motel",
-                            ConcurrencyStamp = "4c2dea41-251b-4021-8059-6374da106d17",
+                            ConcurrencyStamp = "da04d8f3-76a0-4478-b0cf-a9805164e3e5",
                             Email = "NoDirtyMonkeys@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Skippy",
                             LastName = "The Magnificent",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "35295c1f-017a-4614-b610-67fbccd3b81d",
+                            SecurityStamp = "9cd5c8bc-47c7-46de-9661-457c07cfdff4",
                             State = "Galaxy Far Away",
                             StreetAddress = "123 Valkyrie",
                             TwoFactorEnabled = false,
