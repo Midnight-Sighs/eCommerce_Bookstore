@@ -30,6 +30,15 @@ namespace eCommerceStarterCode.Controllers
             return Ok(cart);
         }
 
+        [HttpGet("shoppingCart/{userid}")]
+
+        public IActionResult GetMyCart(string userid)
+        {
+            //everthing that is currently in the cart
+            var cart = _context.ShoppingCart.Where(u => u.UserId == userid);
+            return Ok(cart);
+        }
+
         [HttpDelete("shoppingCart/delete/{Id:int}")]
 
         public IActionResult DeleteBook(int Id)
