@@ -22,9 +22,9 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet("book")]
+        [HttpGet]
 
-        public IActionResult GetBook()
+        public IActionResult GetAllBook()
         {
             // Retrieve all product from database
             var books = _context.Book.ToList();
@@ -34,13 +34,13 @@ namespace eCommerceStarterCode.Controllers
         //id or isbn??? isbn filter/search? 
         //ID is still our primary key.  We included ISBN more because people search for books that way and it's a nice touch. -Midnight
 
-        [HttpGet("book/{id:int}")]
+        [HttpGet("{id:int}")]
 
         public IActionResult GetBookId(int id)
         {
             // Retrieve product by ID from database
-            var BookId = _context.Book.Find(id);
-            return Ok(BookId);
+            var book = _context.Book.Where(b => b.BookId == id).SingleOrDefault();
+            return Ok(book);
         }
 
         [HttpPost("book")]
