@@ -42,6 +42,14 @@ namespace eCommerceStarterCode.Controllers
             var BookId = _context.Book.Find(id);
             return Ok(BookId);
         }
+        [HttpGet("book/{search}")]
+
+        public IActionResult GetBookSearch(string search)
+        {
+            // Retrieve product by ID from database
+            var BookSearch = _context.Book.Find(search);
+            return Ok(BookSearch);
+        }
 
         [HttpPost("book")]
         public IActionResult NewBook([FromBody] Models.Book value)
