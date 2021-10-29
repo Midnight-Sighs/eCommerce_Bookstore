@@ -42,22 +42,22 @@ namespace eCommerceStarterCode.Controllers
             var BookId = _context.Book.Find(id);
             return Ok(BookId);
         }
-        [HttpGet("book/{search}")]
+        //[HttpGet("book/{search}")]
 
-        public IActionResult GetBookSearch(string search)
-        {
-            // Retrieve product by ID from database
-            var BookSearch = _context.Book.
-                return Ok(BookSearch);
-        }
-
-        //[HttpPost("book")]
-        //public IActionResult NewBook([FromBody] Models.Book value)
+        //public IActionResult GetBookSearch(string search)
         //{
-        //    _context.Book.Add(value);
-        //    _context.SaveChanges();
-        //    return StatusCode(201, value);
+        //    // Retrieve product by ID from database
+        //    var BookSearch = _context.Book.
+        //        return Ok(BookSearch);
         //}
+
+        [HttpPost("book")]
+        public IActionResult NewBook([FromBody] Models.Book value)
+        {
+            _context.Book.Add(value);
+            _context.SaveChanges();
+            return StatusCode(201, value);
+        }
 
         [HttpPut("book/edit/{Id}")]
         public IActionResult EditBook(int Id, [FromBody] Book value)
