@@ -48,29 +48,29 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7125fdbd-01f2-47ae-8240-d1fc9a6532ae",
-                            ConcurrencyStamp = "f5e117c9-a583-4df5-b462-d6ca6ca590eb",
+                            Id = "9c805000-0efb-4d87-9f36-2b7321b7d254",
+                            ConcurrencyStamp = "abd3b986-131d-48c1-b1fe-0f7f5148df04",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "8a210ae4-2779-4250-9534-1ebec239f7ce",
-                            ConcurrencyStamp = "3a85e8a5-4dad-4441-badc-537a616038b5",
+                            Id = "f313e574-dea6-441e-9a8f-e2abffb57fc9",
+                            ConcurrencyStamp = "3dc7200b-8c5d-489a-9c0c-3784364e3975",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "84781599-b884-4301-a340-9eb07af0a194",
-                            ConcurrencyStamp = "2d1700fe-3f3c-42a1-8dc2-fa77b6e32c39",
+                            Id = "8cf7e202-3154-4487-9e7b-c6d56ec9dec7",
+                            ConcurrencyStamp = "cdd3c8c2-1225-48dc-9e07-6e27a5ad92bd",
                             Name = "Buyer",
                             NormalizedName = "BUYER"
                         },
                         new
                         {
-                            Id = "16f503fc-f064-4876-84cd-9f1b14609447",
-                            ConcurrencyStamp = "52dc44a9-e07b-4e3f-bb7e-16812c8a570e",
+                            Id = "fc48511d-6a98-4021-9097-102f6db5b053",
+                            ConcurrencyStamp = "bf27f258-f423-4576-8c96-afc778a0e454",
                             Name = "Seller",
                             NormalizedName = "SELLER"
                         });
@@ -440,6 +440,9 @@ namespace eCommerceStarterCode.Migrations
                     b.Property<string>("ZipCode")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("type")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -458,76 +461,80 @@ namespace eCommerceStarterCode.Migrations
                             Id = "a",
                             AccessFailedCount = 0,
                             City = "Some City",
-                            ConcurrencyStamp = "fc4d47fb-3318-4b8d-baeb-090b8c54c645",
+                            ConcurrencyStamp = "18fd0f0e-3c7b-449d-9127-0bb97bbee064",
                             Email = "ChewieYou@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Chewbaca",
                             LastName = "Solo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "38d05d75-457c-4813-8df7-105dfba5695d",
+                            SecurityStamp = "ff8dc413-a956-41af-bc68-4e6cfcaae2e3",
                             State = "No States Here",
                             StreetAddress = "123 Millenium Falcon",
                             TwoFactorEnabled = false,
                             UserName = "Chewie",
-                            ZipCode = "12345"
+                            ZipCode = "12345",
+                            type = false
                         },
                         new
                         {
                             Id = "b",
                             AccessFailedCount = 0,
                             City = "Some City",
-                            ConcurrencyStamp = "469ad080-522f-45b8-8bc6-58c4e6690405",
+                            ConcurrencyStamp = "7044fbe3-3c39-4b82-b25d-94909fb2da9e",
                             Email = "IKnow@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Han",
                             LastName = "Solo",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a2c7b6c9-1be1-45a1-94a6-9198b953b7c4",
+                            SecurityStamp = "b798c4a2-6dcc-4947-9b11-5eaa8fcea03a",
                             State = "No States Here",
                             StreetAddress = "123 Millenium Falcon",
                             TwoFactorEnabled = false,
                             UserName = "Han",
-                            ZipCode = "12345"
+                            ZipCode = "12345",
+                            type = false
                         },
                         new
                         {
                             Id = "c",
                             AccessFailedCount = 0,
                             City = "Roach Motel",
-                            ConcurrencyStamp = "a21917c6-a3d1-42bb-b436-077a4ab9ec3d",
+                            ConcurrencyStamp = "652fd8a4-d9ff-4d3c-982f-19b8cd496f84",
                             Email = "SkippySucks@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Joe",
                             LastName = "Bishop",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "aa4a4813-e821-4cae-a027-188470736f63",
+                            SecurityStamp = "601b6165-e242-4d72-a9b9-893778697ff2",
                             State = "Galaxy Far Away",
                             StreetAddress = "123 Valkyrie",
                             TwoFactorEnabled = false,
                             UserName = "BishopRocks",
-                            ZipCode = "12345"
+                            ZipCode = "12345",
+                            type = false
                         },
                         new
                         {
                             Id = "d",
                             AccessFailedCount = 0,
                             City = "Roach Motel",
-                            ConcurrencyStamp = "bdc1fa02-ca8b-4d47-80ec-a93a7a47ed9c",
+                            ConcurrencyStamp = "f542fb02-e640-4822-8f33-cc6b35d4318e",
                             Email = "NoDirtyMonkeys@aol.com",
                             EmailConfirmed = false,
                             FirstName = "Skippy",
                             LastName = "The Magnificent",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "aa0dde9b-20e4-4133-8dc9-eef08020e128",
+                            SecurityStamp = "a0edc894-f8eb-42dd-80a3-96992c93d5fd",
                             State = "Galaxy Far Away",
                             StreetAddress = "123 Valkyrie",
                             TwoFactorEnabled = false,
                             UserName = "Skippy_The_Mag",
-                            ZipCode = "12345"
+                            ZipCode = "12345",
+                            type = false
                         });
                 });
 
