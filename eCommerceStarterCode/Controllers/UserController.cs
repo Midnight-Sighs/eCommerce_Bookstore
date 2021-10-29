@@ -49,6 +49,26 @@ namespace eCommerceStarterCode.Controllers
             _context.SaveChanges();
             return StatusCode(201, user);
         }
+        [HttpPut("editname/{username}")]
+        public IActionResult EditUserT(string username, [FromBody] User value)
+        {
+            //Edit Single User
+            var user = _context.User.Where(u => u.UserName == username).SingleOrDefault();
+            if (user == null)
+            {
+                return NotFound("There is no user with that Id.");
+            }
+            user.FirstName = value.FirstName;
+            user.LastName = value.LastName;
+            user.StreetAddress = value.StreetAddress;
+            user.City = value.City;
+            user.State = value.State;
+            user.ZipCode = value.ZipCode;
+
+            _context.User.Update(user);
+            _context.SaveChanges();
+            return StatusCode(201, user);
+        }
         [HttpPost("create")]
         public IActionResult NewUser([FromBody] User value)
         {
