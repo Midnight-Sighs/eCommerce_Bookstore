@@ -22,7 +22,7 @@ namespace eCommerceStarterCode.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        [HttpGet("book")]
 
         public IActionResult GetAllBook()
         {
@@ -42,6 +42,14 @@ namespace eCommerceStarterCode.Controllers
             var book = _context.Book.Where(b => b.BookId == id).SingleOrDefault();
             return Ok(book);
         }
+        //[HttpGet("book/{search}")]
+
+        //public IActionResult GetBookSearch(string search)
+        //{
+        //    // Retrieve product by ID from database
+        //    var BookSearch = _context.Book.
+        //        return Ok(BookSearch);
+        //}
 
 
         [HttpPost("book")]

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace eCommerceStarterCode.Migrations
 {
-    public partial class firstMigration : Migration
+    public partial class initialmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -32,6 +32,7 @@ namespace eCommerceStarterCode.Migrations
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     State = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    type = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -244,21 +245,21 @@ namespace eCommerceStarterCode.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "7125fdbd-01f2-47ae-8240-d1fc9a6532ae", "f5e117c9-a583-4df5-b462-d6ca6ca590eb", "User", "USER" },
-                    { "8a210ae4-2779-4250-9534-1ebec239f7ce", "3a85e8a5-4dad-4441-badc-537a616038b5", "Admin", "ADMIN" },
-                    { "84781599-b884-4301-a340-9eb07af0a194", "2d1700fe-3f3c-42a1-8dc2-fa77b6e32c39", "Buyer", "BUYER" },
-                    { "16f503fc-f064-4876-84cd-9f1b14609447", "52dc44a9-e07b-4e3f-bb7e-16812c8a570e", "Seller", "SELLER" }
+                    { "95e4d4e8-83fc-487c-ad1b-3d005ef983fa", "06bc2c78-1a29-4e96-92a9-9dacfdcb0077", "User", "USER" },
+                    { "29ede26d-69d0-484a-a96c-fe80ef370b8d", "00db43ff-17c7-4008-9c5e-f3b89f4df89b", "Admin", "ADMIN" },
+                    { "5e5bddb2-20cc-4db0-a782-6eab30e0a851", "702526bb-d987-49dc-b586-f74413cefc62", "Buyer", "BUYER" },
+                    { "24eb9380-73bd-487c-a305-e1b85548b688", "aa522893-4c47-4c80-a19a-34294c5a7300", "Seller", "SELLER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "City", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "State", "StreetAddress", "TwoFactorEnabled", "UserName", "ZipCode" },
+                columns: new[] { "Id", "AccessFailedCount", "City", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "State", "StreetAddress", "TwoFactorEnabled", "UserName", "ZipCode", "type" },
                 values: new object[,]
                 {
-                    { "a", 0, "Some City", "fc4d47fb-3318-4b8d-baeb-090b8c54c645", "ChewieYou@aol.com", false, "Chewbaca", "Solo", false, null, null, null, null, null, false, "38d05d75-457c-4813-8df7-105dfba5695d", "No States Here", "123 Millenium Falcon", false, "Chewie", "12345" },
-                    { "b", 0, "Some City", "469ad080-522f-45b8-8bc6-58c4e6690405", "IKnow@aol.com", false, "Han", "Solo", false, null, null, null, null, null, false, "a2c7b6c9-1be1-45a1-94a6-9198b953b7c4", "No States Here", "123 Millenium Falcon", false, "Han", "12345" },
-                    { "c", 0, "Roach Motel", "a21917c6-a3d1-42bb-b436-077a4ab9ec3d", "SkippySucks@aol.com", false, "Joe", "Bishop", false, null, null, null, null, null, false, "aa4a4813-e821-4cae-a027-188470736f63", "Galaxy Far Away", "123 Valkyrie", false, "BishopRocks", "12345" },
-                    { "d", 0, "Roach Motel", "bdc1fa02-ca8b-4d47-80ec-a93a7a47ed9c", "NoDirtyMonkeys@aol.com", false, "Skippy", "The Magnificent", false, null, null, null, null, null, false, "aa0dde9b-20e4-4133-8dc9-eef08020e128", "Galaxy Far Away", "123 Valkyrie", false, "Skippy_The_Mag", "12345" }
+                    { "a", 0, "Some City", "a36fea83-4525-428a-bd56-8aad8dfbf0bf", "ChewieYou@aol.com", false, "Chewbaca", "Solo", false, null, null, null, null, null, false, "7f6aef56-f4f8-45ac-abc9-e47ef422092f", "No States Here", "123 Millenium Falcon", false, "Chewie", "12345", false },
+                    { "b", 0, "Some City", "68d20c20-8747-4011-a6af-718945414662", "IKnow@aol.com", false, "Han", "Solo", false, null, null, null, null, null, false, "5d13e5e2-7b32-4755-9c23-8d49bc38b28c", "No States Here", "123 Millenium Falcon", false, "Han", "12345", false },
+                    { "c", 0, "Roach Motel", "f9d8b91b-d8f9-40ea-8d06-cd079559e125", "SkippySucks@aol.com", false, "Joe", "Bishop", false, null, null, null, null, null, false, "ee910e91-27b2-4692-984a-f792aea3d19d", "Galaxy Far Away", "123 Valkyrie", false, "BishopRocks", "12345", false },
+                    { "d", 0, "Roach Motel", "722de4ad-0283-4049-87db-ce970805c1a1", "NoDirtyMonkeys@aol.com", false, "Skippy", "The Magnificent", false, null, null, null, null, null, false, "82cb2530-2289-4b22-849a-e8b9036f1bda", "Galaxy Far Away", "123 Valkyrie", false, "Skippy_The_Mag", "12345", false }
                 });
 
             migrationBuilder.InsertData(
