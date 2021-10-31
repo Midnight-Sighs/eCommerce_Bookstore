@@ -1,10 +1,12 @@
 ﻿using eCommerceStarterCode.Data;
 using eCommerceStarterCode.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,10 +18,12 @@ namespace eCommerceStarterCode.Controllers
     {
         private const string V = "api/";
         private ApplicationDbContext _context;
+        private IWebHostEnvironment _hostEnvironment;
 
-        public BookController(ApplicationDbContext context)
+        public BookController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         [HttpGet("book")]
@@ -31,10 +35,7 @@ namespace eCommerceStarterCode.Controllers
             return Ok(books);
         }
 
-        //id or isbn??? isbn filter/search? 
-        //ID is still our primary key.  We included ISBN more because people search for books that way and it's a nice touch. -Midnight
-
-        [HttpGet("{id:int}")]
+        [HttpGet("book/{id:int}")]
 
         public IActionResult GetBookId(int id)
         {
@@ -42,21 +43,18 @@ namespace eCommerceStarterCode.Controllers
             var book = _context.Book.Where(b => b.BookId == id).SingleOrDefault();
             return Ok(book);
         }
-        //[HttpGet("book/{search}")]
-
-        //public IActionResult GetBookSearch(string search)
-        //{
-        //    // Retrieve product by ID from database
-        //    var BookSearch = _context.Book.
-        //        return Ok(BookSearch);
-        //}
+        /// <summary>
+        /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
         [HttpPost("book")]
-        public IActionResult NewBook([FromBody] Models.Book value)
+        public async Task<ActionResult<Book>> NewBook([FromForm] Book value)
         {
+
+            value.ImagePath = await SaveImage(value.Image);
             _context.Book.Add(value);
-            _context.SaveChanges();
+             _context.SaveChanges();
+
             return StatusCode(201, value);
         }
 
@@ -94,8 +92,19 @@ namespace eCommerceStarterCode.Controllers
             _context.SaveChanges();
             return StatusCode(202, bookToDelete);
         }
-        
 
+        [NonAction]
+        public async Task<string> SaveImage(IFormFile Image)
+        {
+            string imageName = new String(Path.GetFileNameWithoutExtension(Image.FileName).Take(10).ToArray());
+            imageName = imageName + DateTime.Now.ToString("yymmssff") + Path.GetExtension(Image.FileName);
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName);
+            using var fileStream = new FileStream(imagePath, FileMode.Create);
+            {
+                await Image.CopyToAsync(fileStream);
+            }
+            return imageName;
+        }
 
     }
 }

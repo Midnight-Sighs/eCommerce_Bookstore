@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eCommerceStarterCode.Models
@@ -21,14 +22,16 @@ namespace eCommerceStarterCode.Models
         public string ISBN { get; set; }
 
         public double Price { get; set; }
+        public string ImagePath { get; set; }
 
+        [NotMapped]
+        public IFormFile Image { get; set; }
 
         //FK to Users table
-        [ForeignKey("UserID")]
+        [ForeignKey("Id")]
 
-        public string UserId { get; set; }
+        public string Id { get; set; }
 
-        public User User { get; set; }
 
     }
 }
