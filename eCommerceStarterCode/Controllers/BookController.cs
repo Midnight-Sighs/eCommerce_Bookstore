@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,11 +29,30 @@ namespace eCommerceStarterCode.Controllers
 
         [HttpGet("book")]
 
-        public IActionResult GetAllBook()
+        //public IActionResult GetAllBook()
+        //{
+        //    // Retrieve all product from database
+        //    var books = _context.Book.ToList();
+        //    return Ok(books);
+        //}
+        public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
         {
-            // Retrieve all product from database
-            var books = _context.Book.ToList();
-            return Ok(books);
+            return await _context.Book
+                .Select(x => new Book()
+                {
+                    BookId = x.BookId,
+                    Title = x.Title,
+                    Author = x.Author,
+                    Description = x.Description,
+                    Genre = x.Genre,
+                    ReleaseYear = x.ReleaseYear,
+                    ISBN = x.ISBN,
+                    Price = x.Price,
+                    Id = x.Id,
+                    ImagePath = x.ImagePath,
+                    ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImagePath)
+                })
+                .ToListAsync();
         }
 
         [HttpGet("book/{id:int}")]
@@ -50,8 +70,16 @@ namespace eCommerceStarterCode.Controllers
         [HttpPost("book")]
         public async Task<ActionResult<Book>> NewBook([FromForm] Book value)
         {
-
-            value.ImagePath = await SaveImage(value.Image);
+            if (value.Image != null)
+            {
+                value.ImagePath = await SaveImage(value.Image);
+            }
+            if (value.Image == null)
+            {
+                value.ImagePath = "default";
+                value.Image = default;
+            }
+            
             _context.Book.Add(value);
              _context.SaveChanges();
 

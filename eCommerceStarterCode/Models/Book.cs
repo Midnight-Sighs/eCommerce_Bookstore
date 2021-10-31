@@ -31,7 +31,6 @@ namespace eCommerceStarterCode.Models
         [ForeignKey("Id")]
 
         public string Id { get; set; }
-
-
+        public string ImageSrc { get; internal set; }
     }
 }
