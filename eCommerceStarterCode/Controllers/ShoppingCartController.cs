@@ -65,6 +65,23 @@ namespace eCommerceStarterCode.Controllers
             _context.SaveChanges();
             return StatusCode(201, value);
         }
+
+        [HttpPut("shoppingCart/update/{userId}/{Id:int}")]
+
+        public IActionResult UpdateCart(string userId, int Id, [FromBody] ShoppingCart value)
+        {
+            var cart = _context.ShoppingCart.Where(u => u.UserId == userId && u.BookId == Id).SingleOrDefault();
+            if(cart == null)
+            {
+                return NotFound("No shopping cart that meets that criteria");
+            }
+
+            cart.Quantity = value.Quantity;
+
+            _context.ShoppingCart.Update(cart);
+            _context.SaveChanges();
+            return StatusCode(201, value);
+        }
     }
 
 }        
