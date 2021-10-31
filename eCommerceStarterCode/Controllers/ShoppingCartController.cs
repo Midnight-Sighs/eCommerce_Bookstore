@@ -39,12 +39,16 @@ namespace eCommerceStarterCode.Controllers
             return Ok(cart);
         }
 
-        [HttpDelete("shoppingCart/delete/{Id:int}")]
+        [HttpDelete("shoppingCart/{userid}/delete/{Id:int}")]
 
-        public IActionResult DeleteBook(int Id)
+        public IActionResult DeleteBook(string userid, int Id)
         {
-            var bookToDelete = _context.ShoppingCart.Where(u => u.BookId == Id).SingleOrDefault();
-            if (bookToDelete == null)
+            
+            var bookToDelete = _context.ShoppingCart
+                .Where(u => u.UserId == userid && u.BookId == Id)
+                .SingleOrDefault();
+
+             if (bookToDelete == null)
             {
                 return NotFound($"book with BookId = {Id} not found");
             }
@@ -53,7 +57,7 @@ namespace eCommerceStarterCode.Controllers
             return StatusCode(200, bookToDelete);
         }
 
-        [HttpPost("shoppingCart/addBook/{Id:int}")]
+        [HttpPost("shoppingCart/addBook/")]
 
         public IActionResult AddBook([FromBody] ShoppingCart value)
         {
