@@ -101,7 +101,8 @@ namespace eCommerceStarterCode.Controllers
 
                 if (value.Image == null)
                 {
-                }
+                value.ImagePath = "Default.jpg";
+            }
                 else
                 {
                     value.ImagePath = await SaveImage(value.Image);
@@ -138,25 +139,53 @@ namespace eCommerceStarterCode.Controllers
             //return StatusCode(204, value);
         }
         [HttpPut("book/edit/{Id}")]
-        public IActionResult EditBook(int Id, [FromBody] Book value)
+        public async Task<IActionResult> EditBook(int Id, [FromForm] Book value)
         {
-            //Edit Single Book
-            var book = _context.Book.Where(u => u.BookId == Id).SingleOrDefault();
-            if (book == null)
+
+            if (Id != value.BookId)
             {
                 return NotFound("There is no book with that Id.");
             }
-            book.Title = value.Title;
-            book.Author = value.Author;
-            book.Description = value.Description;
-            book.Genre = value.Genre;
-            book.ReleaseYear = value.ReleaseYear;
-            book.ISBN = value.ISBN;
-            book.Price = value.Price;
 
-            _context.Book.Update(book);
-            _context.SaveChanges();
-            return StatusCode(201, book);
+            if (value.Image != null)
+            {
+                DeleteImage(value.ImagePath);
+                value.ImagePath = await SaveImage(value.Image);
+            }
+            _context.Entry(value).State = EntityState.Modified;
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!BookExists(Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+            //book.Title = value.Title;
+            //book.Author = value.Author;
+            //book.Description = value.Description;
+            //book.Genre = value.Genre;
+            //book.ReleaseYear = value.ReleaseYear;
+            //book.ISBN = value.ISBN;
+            //book.Price = value.Price;
+
+            //_context.Book.Update(book);
+            //_context.SaveChanges();
+            //return StatusCode(201, book);
+        }
+
+        private bool BookExists(int id)
+        {
+            return _context.Book.Any(e => e.BookId == id);
         }
 
         [HttpDelete("book/delete/{id:int}")]
@@ -183,6 +212,13 @@ namespace eCommerceStarterCode.Controllers
                 await Image.CopyToAsync(fileStream);
             }
             return imageName;
+        }
+        [NonAction]
+        public void DeleteImage(string imageName)
+        {
+            var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName);
+            if (System.IO.File.Exists(imagePath))
+                System.IO.File.Delete(imagePath);
         }
 
     }
