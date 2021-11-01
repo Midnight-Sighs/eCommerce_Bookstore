@@ -15,6 +15,6 @@ namespace eCommerceStarterCode.Models
         public string City { get; set; }
         public string State { get; set; }
         public string ZipCode { get; set; }
-        public bool type { get; set; } 
+        public string type { get; set; } 
     }
 }

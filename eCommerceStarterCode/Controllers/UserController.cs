@@ -44,6 +44,7 @@ namespace eCommerceStarterCode.Controllers
             user.City = value.City;
             user.State = value.State;
             user.ZipCode = value.ZipCode;
+            user.type = value.type;
 
             _context.User.Update(user);
             _context.SaveChanges();
