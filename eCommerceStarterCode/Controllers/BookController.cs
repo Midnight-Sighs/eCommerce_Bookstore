@@ -1,6 +1,6 @@
 ﻿using eCommerceStarterCode.Data;
 using eCommerceStarterCode.Models;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,13 +13,17 @@ using System.Threading.Tasks;
 
 namespace eCommerceStarterCode.Controllers
 {
+    
     [Route(V)]
     [ApiController]
+
     public class BookController : ControllerBase
     {
         private const string V = "api/";
         private ApplicationDbContext _context;
         private IWebHostEnvironment _hostEnvironment;
+
+        public string Id { get; private set; }
 
         public BookController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
@@ -62,30 +66,77 @@ namespace eCommerceStarterCode.Controllers
             // Retrieve product by ID from database
             var book = _context.Book.Where(b => b.BookId == id).SingleOrDefault();
             return Ok(book);
+
+        }
+        [HttpGet("book/seller/{sellerid}")]
+
+        public async Task<ActionResult<IEnumerable<Book>>> GetBooks(string sellerid)
+        {
+            // Retrieve product by ID from database
+            return await _context.Book.Where(b => b.Id == sellerid)
+                .Select(x => new Book()
+                 {
+                     BookId = x.BookId,
+                     Title = x.Title,
+                     Author = x.Author,
+                     Description = x.Description,
+                     Genre = x.Genre,
+                     ReleaseYear = x.ReleaseYear,
+                     ISBN = x.ISBN,
+                     Price = x.Price,
+                     Id = x.Id,
+                     ImagePath = x.ImagePath,
+                     ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImagePath)
+                 })
+                .ToListAsync();
         }
         /// <summary>
         /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
         [HttpPost("book")]
-        public async Task<ActionResult<Book>> NewBook([FromForm] Book value)
+        //public async Task<ActionResult<Book>> NewBook([FromForm] Book value)
+        public async Task<IActionResult> Post([FromForm]Book value)
         {
-            if (value.Image != null)
-            {
-                value.ImagePath = await SaveImage(value.Image);
-            }
-            if (value.Image == null)
-            {
-                value.ImagePath = "default";
-                value.Image = default;
-            }
-            
-            _context.Book.Add(value);
-             _context.SaveChanges();
+
+                if (value.Image == null)
+                {
+                }
+                else
+                {
+                    value.ImagePath = await SaveImage(value.Image);
+                }
+
+
+                _context.Book.Add(value);
+                _context.SaveChanges();
 
             return StatusCode(201, value);
-        }
+            
+            //catch (Exception)
+            //{
+            //    return StatusCode(StatusCodes.Status500InternalServerError);
+            //}
 
+            //string uniqueFileName = await SaveImage(value.Image);
+
+            //_context.Book.Add(new Book()
+            //    {
+            //        Id = value.Id,
+            //        Title = value.Title,
+            //        Author = value.Author,
+            //        Description = value.Description,
+            //        Genre = value.Genre,
+            //        ReleaseYear = value.ReleaseYear,
+            //        ISBN = value.ISBN,
+            //        Price = value.Price,
+            //        ImageSrc = uniqueFileName,
+            //     });
+
+            //_context.Book.Add(newbook);
+            //await _context.SaveChangesAsync();
+            //return StatusCode(204, value);
+        }
         [HttpPut("book/edit/{Id}")]
         public IActionResult EditBook(int Id, [FromBody] Book value)
         {

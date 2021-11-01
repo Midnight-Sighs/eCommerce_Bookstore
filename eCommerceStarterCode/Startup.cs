@@ -10,6 +10,8 @@ using eCommerceStarterCode.Extensions;
 using eCommerceStarterCode.Managers;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using eCommerceStarterCode.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace eCommerceStarterCode
 {
@@ -25,6 +27,7 @@ namespace eCommerceStarterCode
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.ConfigureCors();
             services.ConfigureSqlContext(Configuration);
             services.AddAutoMapper(typeof(Startup));
@@ -35,6 +38,9 @@ namespace eCommerceStarterCode
             services.AddScoped<IAuthenticationManager, AuthenticationManager>();
             services.AddControllers();
             services.AddCors();
+            services.AddDbContext<ApplicationDbContext > (options =>
+            options.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +48,9 @@ namespace eCommerceStarterCode
         {
             app.UseCors(options => options.WithOrigins("http://localhost:3000")
             .AllowAnyMethod()
-            .AllowAnyHeader());
+            .AllowAnyHeader()
+            .AllowAnyOrigin());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
