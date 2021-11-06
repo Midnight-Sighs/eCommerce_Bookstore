@@ -15,23 +15,24 @@ namespace eCommerceStarterCode.Models
 
         public int BookId { get; set; }
 
-
+        [Column(TypeName = "nvarchar(50)")]
         public string Title { get; set; }
 
-
+        [Column(TypeName = "nvarchar(50)")]
         public string Author { get; set; }
 
-
+        [Column(TypeName = "nvarchar(MAX)")]
         public string Description { get; set; }
 
-
+        [Column(TypeName = "nvarchar(MAX)")]
         public string Genre { get; set; }
-
+        [Column(TypeName = "nvarchar(MAX)")]
         public string ReleaseYear { get; set; }
-
+        [Column(TypeName = "nvarchar(50)")]
         public string ISBN { get; set; }
-
+        [Column(TypeName = "float")]
         public double Price { get; set; }
+        [NotMapped]
         public string ImagePath { get; set; }
 
         [NotMapped]
@@ -41,6 +42,5 @@ namespace eCommerceStarterCode.Models
         [ForeignKey("Id")]
 
         public string Id { get; set; }
-        public string ImageSrc { get; internal set; }
     }
 }

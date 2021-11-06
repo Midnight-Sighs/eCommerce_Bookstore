@@ -54,7 +54,6 @@ namespace eCommerceStarterCode.Controllers
                     Price = x.Price,
                     Id = x.Id,
                     ImagePath = x.ImagePath,
-                    ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImagePath)
                 })
                 .ToListAsync();
         }
@@ -86,7 +85,6 @@ namespace eCommerceStarterCode.Controllers
                      Price = x.Price,
                      Id = x.Id,
                      ImagePath = x.ImagePath,
-                     ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImagePath)
                  })
                 .ToListAsync();
         }
@@ -96,19 +94,10 @@ namespace eCommerceStarterCode.Controllers
 
         [HttpPost("book")]
         //public async Task<ActionResult<Book>> NewBook([FromForm] Book value)
-        public async Task<IActionResult> Post([FromForm]Book value)
+        public async Task<IActionResult> NewBookPost([FromForm] Book value)
         {
 
-                if (value.Image == null)
-                {
-                value.ImagePath = "Default.jpg";
-            }
-                else
-                {
-                    value.ImagePath = await SaveImage(value.Image);
-                }
-
-
+                value.ImagePath = await SaveImage(value.Image);
                 _context.Book.Add(value);
                 _context.SaveChanges();
 

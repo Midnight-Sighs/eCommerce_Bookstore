@@ -27,7 +27,17 @@ namespace eCommerceStarterCode.Controllers
             var reviews = _context.Reviews.ToList();
             return Ok(reviews);
         }
+        [HttpGet("reviews/book/{bookId}")]
 
+        public IActionResult GetReviewById(int bookId)
+        {
+            var review = _context.Reviews.Find(bookId);
+            if (review == null)
+            {
+                return NotFound();
+            }
+            return Ok(review);
+        }
         [HttpGet("reviews/{reviewId:int}")]
 
         public IActionResult GetReview(int reviewId)

@@ -39,7 +39,7 @@ namespace eCommerceStarterCode.Controllers
             return Ok(cart);
         }
 
-        [HttpDelete("shoppingCart/{userid}/delete/{Id:int}")]
+        [HttpDelete("shoppingCart/{userid}/delete/{Id}")]
 
         public IActionResult DeleteBook(string userid, int Id)
         {
@@ -49,6 +49,23 @@ namespace eCommerceStarterCode.Controllers
                 .SingleOrDefault();
 
              if (bookToDelete == null)
+            {
+                return NotFound($"book with BookId = {Id} not found");
+            }
+            _context.ShoppingCart.Remove(bookToDelete);
+            _context.SaveChanges();
+            return StatusCode(200, bookToDelete);
+        }
+        [HttpDelete("shoppingCart/delete/{cartId}")]
+
+        public IActionResult DeleteBook(int Id)
+        {
+
+            var bookToDelete = _context.ShoppingCart
+                .Where(u => u.CartId == Id)
+                .SingleOrDefault();
+
+            if (bookToDelete == null)
             {
                 return NotFound($"book with BookId = {Id} not found");
             }
